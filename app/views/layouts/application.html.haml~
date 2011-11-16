@@ -1,0 +1,15 @@
+!!!
+%html
+	%head
+		%title радиодетали
+		= stylesheet_link_tag 'cupertino/jquery-ui-1.8.16.custom.css', 'bootstrap', 'layout'
+		= javascript_include_tag :defaults
+		= csrf_meta_tag
+	%body
+		.header
+			радиодетали
+		.row{:style=>"margin-left:auto; margin-right:auto;"}
+			.span4
+				= link_to 'разделы и товары', menus_path
+			.span13{:style=>"background:#eee;width:740px;"}
+				= yield

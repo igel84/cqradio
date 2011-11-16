@@ -1,0 +1,29 @@
+<%= form_for(@menu) do |f| %>
+  <% if @menu.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@menu.errors.count, "error") %> prohibited this menu from being saved:</h2>
+
+      <ul>
+      <% @menu.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <%= f.select :parent_id, nested_set_options(Menu, @menu) {|i| "#{'-' * i.level} #{i.name}" } %><div class="field">
+    <%= f.label :lft %><br />
+    <%= f.text_field :lft %>
+  </div>
+  <div class="field">
+    <%= f.label :rgt %><br />
+    <%= f.text_field :rgt %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

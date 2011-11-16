@@ -1,0 +1,31 @@
+/* line 1, ../../app/stylesheets/layout.scss */
+h3.title {
+  padding: 0 0 0 20px;
+}
+/* line 3, ../../app/stylesheets/layout.scss */
+h3.title a.btn {
+  margin: 5px 10px 0 0;
+  float: right;
+}
+
+/* line 8, ../../app/stylesheets/layout.scss */
+a.with-img {
+  margin: 0;
+}
+/* line 10, ../../app/stylesheets/layout.scss */
+a.with-img:hover {
+  background: none;
+}
+
+/* line 14, ../../app/stylesheets/layout.scss */
+.products tr td span.label.notice {
+  padding: 3px 2px 3px 2px;
+}
+/* line 15, ../../app/stylesheets/layout.scss */
+.products tr td:nth-child(2) {
+  padding-left: 0;
+}
+/* line 16, ../../app/stylesheets/layout.scss */
+.products tr td img.photo {
+  border: solid 2px #bbb;
+}

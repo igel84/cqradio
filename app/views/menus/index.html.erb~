@@ -1,0 +1,29 @@
+<h1>Listing menus</h1>
+
+<table class="zebra-striped">
+  <tr>
+    <th>Name</th>
+    <th>Parent</th>
+    <th>Lft</th>
+    <th>Rgt</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @menus.each do |menu| %>
+  <tr>
+    <td><%= link_to menu.name, {:controller=>'menus', :action=>'index', :id=>menu} %></td>
+    <td><%= menu.parent_id %></td>
+    <td><%= menu.lft %></td>
+    <td><%= menu.rgt %></td>
+    <td><%= link_to 'Show', menu %></td>
+    <td><%= link_to 'Edit', edit_menu_path(menu) %></td>
+    <td><%= link_to 'Destroy', menu, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Menu', new_menu_path %>

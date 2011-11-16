@@ -1,0 +1,72 @@
+%h3.title
+	Раздел: 
+	= params[:parent_id] ? (link_to Menu.find(params[:parent_id]).name, {:controller=>'menus', :action=>'index', :parent_id=>Menu.find(params[:parent_id]).parent_id}) : 'Корневой раздел'
+	- if params[:parent_id]
+		= link_to 'добавить раздел', {:controller=>'menus', :action=>'new', :parent_id=>params[:parent_id]}, :class=>'btn info'
+	- else
+		= link_to 'добавить раздел', {:controller=>'menus', :action=>'new'}, :class=>'btn info'
+%br/
+%table.zebra-striped
+	%tr
+		%th Название
+		%th Раздел
+		%th{:style=>'text-align:center;width:120px;'} &nbsp;
+		%th{:style=>'width:25px;'} &nbsp;
+		%th{:style=>'width:25px;'} &nbsp;
+		%th{:style=>'width:25px;'} &nbsp;
+	- @menus.each do |menu|
+		%tr
+			%td= link_to menu.name, {:controller=>'menus', :action=>'index', :parent_id=>menu}
+			%td= menu.parent.name if menu.parent
+			%td{:style=>'text-align:center;'}
+				= link_to move_menu_path(:position=>'first', :id=>menu.id), :class=>'with-img' do
+					= image_tag '/images/first.png'
+				= link_to move_menu_path(:position=>'up', :id=>menu.id), :class=>'with-img' do
+					= image_tag '/images/up.png'
+				= link_to move_menu_path(:position=>'down', :id=>menu.id), :class=>'with-img' do
+					= image_tag '/images/down.png'
+				= link_to move_menu_path(:position=>'last', :id=>menu.id), :class=>'with-img' do
+					= image_tag '/images/last.png'
+			%td{:style=>'text-align:center;'}
+				- if menu.visible
+					= link_to visible_menu_path(:value=>'false', :id=>menu.id), :class=>'with-img' do
+						= image_tag '/images/visible.png'
+				- else				
+					= link_to visible_menu_path(:value=>'true', :id=>menu.id), :class=>'with-img' do
+						= image_tag '/images/notvisible.png'
+			%td{:style=>'text-align:center;'}
+				= link_to edit_menu_path(menu), :class=>'with-img' do
+					= image_tag '/images/edit.png'
+			%td{:style=>'text-align:center;'}
+				= link_to menu, :confirm => 'Are you sure?', :method => :delete, :class=>'with-img' do
+					= image_tag '/images/del.png'
+%h3.title{:style=>'margin-top:20px;'}
+	Товары в разделе
+	- if params[:parent_id]
+		= link_to 'добавить товар', {:controller=>'products', :action=>'new', :parent_id=>params[:parent_id]}, :class=>'btn info'
+	- else
+		= link_to 'добавить товар', {:controller=>'products', :action=>'new'}, :class=>'btn info'
+%br/
+%table.zebra-striped.products
+	%tr
+		%th{:style=>'width:110px;'} Фото
+		%th Информация
+		%th{:style=>'text-align:center'} Цена
+		%th{:style=>'width:25px;'} &nbsp;
+		%th{:style=>'width:25px;'} &nbsp;
+	- @products = Product.where(:menu_id=>params[:parent_id]).order('position')
+	- if @products
+		- @products.each do |product|
+			%tr
+				%td= product.images == [] ? '' : image_tag(product.images.first.photo.url(:thumb), :class=>'ui-corner-all photo')
+				%td
+					%h6= link_to(product.name, product.datasheet.url)
+					%p= truncate(product.info, :length=>140, :omision=>'...')
+				%td{:style=>'text-align:center;vertical-align:top;'}
+					%span.label.notice{:style=>'font-size:13px;'}= number_to_currency(product.price, :unit=>'руб', :separator=>',', :format=>"%n %u", :delimiter => " ") if product.price
+				%td{:style=>'text-align:center;'}
+					= link_to edit_product_path(product), :class=>'with-img' do
+						= image_tag '/images/edit.png'
+				%td{:style=>'text-align:center;'}
+					= link_to product, :confirm => 'Are you sure?', :method => :delete, :class=>'with-img' do
+						= image_tag '/images/del.png'

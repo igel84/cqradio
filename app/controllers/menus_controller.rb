@@ -1,0 +1,111 @@
+class MenusController < ApplicationController
+  
+  def move
+    @menu = Menu.find(params[:id])
+    case params[:position]
+      when 'up'
+        Menu.find(params[:id]).move_left if @menu != Menu.where(:parent_id=>@menu.parent_id).order('lft').first
+      when 'down'
+        Menu.find(params[:id]).move_right if @menu != Menu.where(:parent_id=>@menu.parent_id).order('lft').last
+      when 'first'
+        while @menu != Menu.where(:parent_id=>@menu.parent_id).order('lft').first
+          Menu.find(params[:id]).move_left
+        end
+      when 'last'
+        while @menu != Menu.where(:parent_id=>@menu.parent_id).order('lft').last
+          Menu.find(params[:id]).move_right
+        end
+    end
+    redirect_to :action=>'index', :parent_id => @menu.parent_id
+  end
+  
+  def visible
+    @menu = Menu.find(params[:id])
+    params[:value] == 'true' ? @menu.visible = true : @menu.visible = false
+    @menu.save
+    redirect_to :action=>'index', :parent_id => @menu.parent_id
+  end
+  
+  # GET /menus
+  # GET /menus.xml
+  def index
+    params[:parent_id] == nil ? @menus = Menu.roots : @menus = Menu.where(:parent_id=> params[:parent_id]).order('lft')#.where(:visible=>true) #.leaves
+
+    respond_to do |format|
+      format.html # index.html.erb
+      format.xml  { render :xml => @menus }
+    end
+  end
+
+  # GET /menus/1
+  # GET /menus/1.xml
+  def show
+    @menu = Menu.find(params[:id])
+
+    respond_to do |format|
+      format.html # show.html.erb
+      format.xml  { render :xml => @menu }
+    end
+  end
+
+  # GET /menus/new
+  # GET /menus/new.xml
+  def new
+    
+    params[:parent_id] == nil ? @menu = Menu.new : @menu = Menu.new(:parent_id => params[:parent_id])
+
+    respond_to do |format|
+      format.html # new.html.erb
+      format.xml  { render :xml => @menu }
+    end
+  end
+
+  # GET /menus/1/edit
+  def edit
+    @menu = Menu.find(params[:id])
+  end
+
+  # POST /menus
+  # POST /menus.xml
+  def create
+    @menu = Menu.new(params[:menu])
+
+    respond_to do |format|
+      if @menu.save
+        format.html { redirect_to(:action=>'index', :parent_id => @menu.parent_id) }
+        format.xml  { render :xml => @menu, :status => :created, :location => @menu }
+      else
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @menu.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # PUT /menus/1
+  # PUT /menus/1.xml
+  def update
+    @menu = Menu.find(params[:id])
+
+    respond_to do |format|
+      if @menu.update_attributes(params[:menu])
+        format.html { redirect_to(@menu, :notice => 'Menu was successfully updated.') }
+        format.xml  { head :ok }
+      else
+        format.html { render :action => "edit" }
+        format.xml  { render :xml => @menu.errors, :status => :unprocessable_entity }
+      end
+    end
+  end
+
+  # DELETE /menus/1
+  # DELETE /menus/1.xml
+  def destroy
+    @menu = Menu.find(params[:id])
+    @menu.destroy
+
+    respond_to do |format|
+      format.html { redirect_to(menus_url) }
+      format.xml  { head :ok }
+    end
+  end
+end

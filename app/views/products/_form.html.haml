@@ -1,0 +1,42 @@
+= form_for(@product, :html => { :multipart => true }) do |f|
+	= f.hidden_field :menu_id, :value=>@product.menu_id
+	- if @product.errors.any?
+		#error_explanation
+			%h6= pluralize(@product.errors.count, "error")
+			%ul
+				- @product.errors.full_messages.each do |msg|
+					%li= msg
+	.field
+		= f.label 'Документация'
+		.input
+			= f.file_field :datasheet, :class=>"input-file", :style=>"background:#eee;"
+	.field
+		= f.label 'Название'
+		.input
+			= f.text_field :name, :class=>"span9"
+	.field
+		= f.label 'Описание'
+		.input
+			= f.text_area :info, :class=>"span9", :style=>"height:100px;"
+	.field
+		= f.label 'Цена'
+		.input
+			= f.text_field :price, :class=>'span9'
+	#photo-pres{:style=>'display:block;margin:10px 70px 10px 150px;'}
+		- @product.images.each do |image|
+			.photo-pres{:style=>'margin:5px 5px 0 0;display:inline;'}
+				= image_tag(image.photo.url(:thumb), :class=>'ui-corner-all photo')
+				= link_to del_image_product_path(:id=>@product.id, :image=>image.id), :style=>'position:relation;margin-left:-25px;' do
+					= image_tag '/images/del.png'
+	#photo-list.field
+		= f.label 'Добавить фото', :id=>'choose_file'
+		- 5.times do |num|
+			.input
+				%input{:type=>'file', :name=>'photos[]', :class=>'input-file file-list', :style=>'background:#eee;', :id=>"file-list-#{num}"}
+				=# file_field(:product, 'photos[]', :class=>"input-file", :style=>"background:#eee;")
+	.actions
+		= f.submit 'сохранить данные', :class=>"btn info"
+		- if @product.menu
+			= link_to 'отменить', {:controller=>'menus', :action=>'index', :parent_id=>@product.menu.id}, :class=>'btn info'
+		- else
+			= link_to 'отменить', menus_path, :class=>'btn info'

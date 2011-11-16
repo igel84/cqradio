@@ -1,0 +1,18 @@
+h3.title { 
+	padding: 0 0 0 20px; 
+	a.btn { 
+		margin: 5px 10px 0 0;
+		float:right;
+	}
+}
+a.with-img {
+	margin:0;
+	&:hover { background:none; }
+}
+.products {
+	tr {
+		td span.label.notice { padding: 3px 1px 3px 1px; }
+		td:nth-child(2) { padding-left:0; }
+		td img.photo { border: solid 2px #bbb; }
+	}
+}

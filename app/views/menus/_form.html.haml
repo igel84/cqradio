@@ -1,0 +1,18 @@
+= form_for(@menu) do |f|
+	= f.hidden_field :parent_id, :value=>@menu.parent_id
+	- if @menu.errors.any?
+		#error_explanation
+			%h2= pluralize(@menu.errors.count, "error")
+			%ul
+				- @menu.errors.full_messages.each do |msg|
+					%li= msg
+	.field
+		= f.label 'Название'
+		.input
+			= f.text_field :name, :class=>'span9'
+		.actions
+			= f.submit 'сохранить', :class=>'btn info'
+			- if @menu.parent
+				= link_to 'отменить', {:controller=>'menus', :action=>'index', :parent_id=>@menu.parent_id}, :class=>'btn info'
+			- else
+				= link_to 'отменить', menus_path, :class=>'btn info'

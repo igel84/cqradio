@@ -1,0 +1,4 @@
+%h3.title
+	Добавление раздела в 
+	= params[:id] ? Menu.find(params[:id]).name : 'Корневой раздел'
+= render 'form'

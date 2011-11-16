@@ -1,0 +1,4 @@
+%h3.title
+	Добавление товара в раздел  
+	= params[:parent_id] ? Menu.find(params[:parent_id]).name : 'Корневой раздел'
+= render 'form'

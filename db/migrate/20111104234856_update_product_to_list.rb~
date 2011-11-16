@@ -1,0 +1,16 @@
+class UpdateProductToList < ActiveRecord::Migration
+  def self.up
+    remove_column :products, :rgt
+    rename_table :products, :lft, :position
+    
+    pos = 1
+    Product.all.each do |product|
+      product.position = pos
+      product.save
+      pos += 1
+    end
+  end
+
+  def self.down
+  end
+end
