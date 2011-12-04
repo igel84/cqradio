@@ -1,12 +1,16 @@
 InitialRelease::Application.routes.draw do
-  
+
+  resources :pages
+
   match '/move_menu/:id/:position' => 'menus#move', :as => 'move_menu'
   match '/visible_menu/:id/:value' => 'menus#visible', :as => 'visible_menu'
   match '/move_product/:id/:position' => 'products#move', :as => 'move_product'
   match '/del_image_product/:id/:image' => 'products#del_image', :as => 'del_image_product'
-  
+
   resources :products
   resources :menus
+
+  root :to => 'pages#show', :id => '1'
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

@@ -21,7 +21,7 @@ class MenusController < ApplicationController
   
   def visible
     @menu = Menu.find(params[:id])
-    params[:value] == 'visible' ? @menu.visible = true : @menu.visible = false
+    params[:value] == 'true' ? @menu.visible = true : @menu.visible = false
     @menu.save
     redirect_to :action=>'index', :parent_id => @menu.parent_id
   end

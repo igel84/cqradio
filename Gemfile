@@ -13,6 +13,7 @@ gem 'russian'
 gem 'mongrel', '1.2.0.pre2'
 gem 'awesome_nested_set'
 gem 'paperclip', "~> 2.4"
+gem "ckeditor", "~> 3.6.0"
 gem "acts_as_list"
 
 # Use unicorn as the web server

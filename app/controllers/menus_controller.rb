@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-  
+
   def move
     @menu = Menu.find(params[:id])
     case params[:position]
@@ -18,14 +18,14 @@ class MenusController < ApplicationController
     end
     redirect_to :action=>'index', :parent_id => @menu.parent_id
   end
-  
+
   def visible
     @menu = Menu.find(params[:id])
     params[:value] == 'true' ? @menu.visible = true : @menu.visible = false
     @menu.save
     redirect_to :action=>'index', :parent_id => @menu.parent_id
   end
-  
+
   # GET /menus
   # GET /menus.xml
   def index
@@ -51,7 +51,7 @@ class MenusController < ApplicationController
   # GET /menus/new
   # GET /menus/new.xml
   def new
-    
+
     params[:parent_id] == nil ? @menu = Menu.new : @menu = Menu.new(:parent_id => params[:parent_id])
 
     respond_to do |format|

@@ -1,5 +1,5 @@
 class ProductsController < ApplicationController
-  
+  layout 'main_layout', :only=>'show'
     def del_image
       @product = Product.find(params[:id])
       @image = Image.find(params[:image])
@@ -7,7 +7,7 @@ class ProductsController < ApplicationController
       #@product.images.where(:id=>params[:image]).destroy
       redirect_to :controller=>'products', :action=>'edit', :id => @product.id, :parent_id => @product.menu_id
     end
-    
+
     def move
     @product = Product.find(params[:id])
     case params[:position]
@@ -92,7 +92,7 @@ class ProductsController < ApplicationController
       end
       @product.save
     end
-        
+
     respond_to do |format|
       if @product.update_attributes(params[:product])
         format.html { redirect_to  :controller=>'menus', :action=>'index', :parent_id => @product.menu_id }
