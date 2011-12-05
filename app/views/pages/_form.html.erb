@@ -12,19 +12,19 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
+  <div class="field" style="margin-top:20px;">
+    <%= f.label 'Название страницы', :style=>'width:200px;margin:5px 20px auto auto;display:block;' %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :title %><br />
+    <%= f.label 'Заголовок', :style=>'width:200px;margin:20px 20px auto auto;display:block;' %><br />
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :body %><br />
+    <%= f.label 'Содержание', :style=>'width:200px;margin:20px 20px auto auto;display:block;' %><br /><br /><br />
     <%= cktext_area(:page, :body, :input_html => {:cols => 10, :rows => 20}, :toolbar => 'Easy') %>
   </div>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'сохранить'%>
   </div>
 <% end %>

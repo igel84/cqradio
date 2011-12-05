@@ -1,0 +1,15 @@
+- if @menus != []
+	%h2.title{:style=>'margin-top:40px;margin-bottom:40px;'} Категория товаров
+- @menus.each do |m|
+	= link_to category_path(m), :class=>'cat_info' do
+		= image_tag 'info.jpg'
+		.cat-name= m.name
+		.cat-info= Product.where(:menu_id=>m.id).where(:visible=>true).size.to_s
+- if @products != []
+	%h2.title{:style=>'margin-top:40px;margin-bottom:40px;'} Товары
+- @products.each do |pr|
+	= link_to(product_path(pr), :class=>'rowbottom') do
+		= image_tag pr.images.first.photo.url(:thumb) if pr.images != []
+		.prod-name= truncate(pr.name, :length=>20, :ommission=>'...')
+		.prod-info= truncate(pr.info, :length=>50, :ommission=>'...')
+		.clear

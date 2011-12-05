@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111204232952) do
+ActiveRecord::Schema.define(:version => 20111205204754) do
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false
@@ -68,6 +68,17 @@ ActiveRecord::Schema.define(:version => 20111204232952) do
     t.string   "datasheet_content_type"
     t.integer  "datasheet_file_size"
     t.datetime "datasheet_updated_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "pass"
+    t.string   "hashed_password"
+    t.text     "info"
+    t.boolean  "admin"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

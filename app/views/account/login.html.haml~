@@ -1,0 +1,14 @@
+%h2.title Вход
+%p#notice{:style=>'text-align:center;font:normal 14px "Tahoma";color:#39f;'}
+	= notice
+- form_for :user, :url => {:controller => 'account', :action => 'authenticate'} do |f|
+	%p{:style=>'text-align:center; margin-top:20px;'}
+		Пользователь:
+		%br/
+		= f.text_field :name, :size => 30, :class=>"text ui-widget-content ui-corner-all"
+	%p{:style=>'text-align:center;'}
+		Пароль:
+		%br/
+		= f.password_field :password, :size => 30, :class=>"text ui-widget-content ui-corner-all"
+	%p{:style=>'text-align:center; margin-top:20px;'}
+		= submit_tag 'войти', :class=>'but', :style=>"width:100px;"

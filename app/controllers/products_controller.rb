@@ -1,5 +1,8 @@
 class ProductsController < ApplicationController
-  layout 'main_layout', :only=>'show'
+  #layout 'main_layout', :only=>'show'
+  layout 'application', :except=>'show'
+  before_filter :have_access, :except => [:show]
+
     def del_image
       @product = Product.find(params[:id])
       @image = Image.find(params[:image])
@@ -41,11 +44,7 @@ class ProductsController < ApplicationController
   # GET /products/1.xml
   def show
     @product = Product.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @product }
-    end
+    render 'show', :layout=>'main_layout'
   end
 
   # GET /products/new
@@ -116,4 +115,5 @@ class ProductsController < ApplicationController
       format.xml  { head :ok }
     end
   end
+
 end

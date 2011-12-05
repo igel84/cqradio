@@ -6,7 +6,7 @@
 			%ul
 				- @menu.errors.full_messages.each do |msg|
 					%li= msg
-	.field
+	.field{:style=>"margin-top:20px"}
 		= f.label 'Название'
 		.input
 			= f.text_field :name, :class=>'span9'

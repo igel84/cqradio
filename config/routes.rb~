@@ -1,5 +1,12 @@
 InitialRelease::Application.routes.draw do
 
+  match '/login' => 'account#login', :as => 'login'
+  match '/logout' => 'account#logout', :as => 'logout'
+  match '/authenticate' => 'account#authenticate', :as => 'authenticate'
+
+  match '/find/:text' => 'pages#find'
+
+  resources :users
   resources :pages
 
   match '/move_menu/:id/:position' => 'menus#move', :as => 'move_menu'
@@ -7,10 +14,13 @@ InitialRelease::Application.routes.draw do
   match '/move_product/:id/:position' => 'products#move', :as => 'move_product'
   match '/del_image_product/:id/:image' => 'products#del_image', :as => 'del_image_product'
 
+  match '/product_info/:id' => 'pages#product_info', :as => 'product_info'
+  match '/category/(:id)' => 'pages#category', :as => 'category'
+
   resources :products
   resources :menus
 
-  root :to => 'pages#show', :id => '1'
+  root :to => 'pages#show', :id => 1
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

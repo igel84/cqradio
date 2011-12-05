@@ -6,7 +6,7 @@
 			%ul
 				- @product.errors.full_messages.each do |msg|
 					%li= msg
-	.field
+	.field{:style=>"margin-top:20px"}
 		= f.label 'Документация'
 		.input
 			= f.file_field :datasheet, :class=>"input-file", :style=>"background:#eee;"

@@ -13,33 +13,33 @@
 					= image_tag 'lock.png'
 					= link_to 'Регистрация', root_path
 					= link_to '/', '#', :id=>'enter-space'
-					= link_to 'Вход', root_path
-				%li
-					= image_tag 'shopcart.png'
-					= link_to 'Корзина', root_path
+					= link_to 'Вход', login_path
+			-# 	%li
+			-# 		= image_tag 'shopcart.png'
+			-# 		= link_to 'Корзина', root_path
 			.clear
 			#find
 				.field
 					%input
-				= link_to 'Поиск', root_path
+				= link_to 'Поиск', root_path, :id=>'find-but'
 			.row
 				.span5
 					%ul#main-menu
 						%li
 							= link_to Page.find(1).name, root_path
 						%li
-							= link_to 'ТОВАРЫ', root_path
+							= link_to 'ТОВАРЫ', category_path
 						%ul#main-menu
-							- Menu.roots.order('lft').each do |m_root|
+							- Menu.roots.where(:visible=>true).order('lft').each do |m_root|
 								%li
-									= link_to m_root.name, root_path
+									= link_to m_root.name, category_path(m_root)
 								%ul#main-menu
-									- m_root.children.each do |m_child|
+									- m_root.children.where(:visible=>true).each do |m_child|
 										%li
-											= link_to m_child.name, root_path
-									- m_root.products.each do |p_root|
+											= link_to m_child.name, category_path(m_child)
+									- m_root.products.where(:visible=>true).each do |p_root|
 										%li
-											= link_to p_root.name, root_path, :class=>'product'
+											= link_to p_root.name, product_path(p_root), :class=>'product'
 						- Page.where('id != 1').each do |page|
 							%li
 								= link_to page.name, page_path(page)
@@ -50,6 +50,7 @@
 							= image_tag pr.images.first.photo.url(:thumb) if pr.images != []
 							.prod-name= truncate(pr.name, :length=>20, :ommission=>'...')
 							.prod-info= truncate(pr.info, :length=>50, :ommission=>'...')
+					.clear
 					.info
 						= yield
 			#layout_footer

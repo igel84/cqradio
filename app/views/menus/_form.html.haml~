@@ -13,6 +13,6 @@
 		.actions
 			= f.submit 'сохранить', :class=>'btn info'
 			- if @menu.parent
-				= link_to 'отменить', {:controller=>'menus', :action=>'index', :parent_id=>params[:parent_id]}, :class=>'btn info'
+				= link_to 'отменить', {:controller=>'menus', :action=>'index', :parent_id=>@menu.parent_id}, :class=>'btn info'
 			- else
 				= link_to 'отменить', menus_path, :class=>'btn info'

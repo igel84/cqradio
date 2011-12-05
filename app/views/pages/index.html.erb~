@@ -1,0 +1,19 @@
+<table>
+  <tr>
+    <th style:"text-align:center">Название страницы</th>
+    <th style:"text-align:center">Заголовок</th>
+    <th style:"text-align:center">Содержание</th>
+    <th></th>
+  </tr>
+
+<% @pages.each do |page| %>
+  <tr>
+    <td><%= page.name %></td>
+    <td><%= page.title %></td>
+    <td><%= truncate(page.body, :length=>100, :ommission=>'...') %></td>
+    <td><%= link_to 'редакт.', edit_page_path(page) %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />

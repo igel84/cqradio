@@ -1,25 +1,38 @@
 class PagesController < ApplicationController
-  layout "main_layout"
-  # GET /pages
-  # GET /pages.xml
+  #layout "main_layout", :only => 'category, show'
+  layout "application", :except => 'category, show'
+
+	def find
+		if params[:text] != ''
+			@menus = []
+			@products = Product.find(:all, :conditions=>['name like ?', "%" + params[:text] + "%"])
+			render 'category', :layout=>'main_layout'
+		else
+			redirect_to :root
+		end
+	end
+
+  def category
+  	if params[:id]
+  		@menu = Menu.find(params[:id])
+			@menus = @menu.children.where(:visible=>true)
+			@products = @menu.products
+		else
+			@menus = Menu.roots.where(:visible=>true)
+			@products = Product.where(:menu_id=>nil)
+		end
+		render 'category', :layout=>'main_layout'
+  end
+
   def index
     @pages = Page.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @pages }
-    end
-  end
+	end
 
   # GET /pages/1
   # GET /pages/1.xml
   def show
     @page = Page.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @page }
-    end
+		render 'show', :layout=>'main_layout'
   end
 
   # GET /pages/new
@@ -61,7 +74,7 @@ class PagesController < ApplicationController
 
     respond_to do |format|
       if @page.update_attributes(params[:page])
-        format.html { redirect_to(@page, :notice => 'Page was successfully updated.') }
+        format.html { redirect_to(pages_path, :notice => 'Page was successfully updated.') }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

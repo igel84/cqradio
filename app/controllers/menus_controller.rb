@@ -1,4 +1,5 @@
 class MenusController < ApplicationController
+	before_filter :have_access
 
   def move
     @menu = Menu.find(params[:id])

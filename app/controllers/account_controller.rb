@@ -1,0 +1,23 @@
+class AccountController < ApplicationController
+	layout 'main_layout'
+
+  def authenticate
+		user = User.authenticate(params[:user][:name], params[:user][:password])
+		if user
+			session[:user_id] = user.id
+	    redirect_to :menus
+	  else
+	    flash[:notice] = "Имя пользователя или пароль указаны неверно"
+	    redirect_to :action => 'login'
+	  end
+  end
+
+  def logout
+    if request.post?
+      session[:user_id] = nil
+      flash[:notice] = "Вы вышли из своего профиля"
+    end
+    redirect_to :root
+   end
+
+end

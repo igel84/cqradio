@@ -26,7 +26,7 @@
 		- @product.images.each do |image|
 			.photo-pres{:style=>'margin:5px 5px 0 0;display:inline;'}
 				= image_tag(image.photo.url(:thumb), :class=>'ui-corner-all photo')
-				= link_to del_image_product_path(:id=>@product.id, :image=>image.id), :style=>'position:relation;margin-left:-25px;bottom:30px;' do
+				= link_to del_image_product_path(:id=>@product.id, :image=>image.id), :style=>'position:relation;margin-left:-25px;' do
 					= image_tag '/images/del.png'
 	#photo-list.field
 		= f.label 'Добавить фото', :id=>'choose_file'
