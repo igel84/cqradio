@@ -30,6 +30,7 @@ $bg-color: #ccc;
 }
 
 #content {
+	@include border-radius(50px);
 	margin:0 auto 0 auto;
 	width:1000px;
 	background: url('../images/top-bg.png') top repeat-x #fff;
