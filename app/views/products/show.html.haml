@@ -1,5 +1,5 @@
 %h2.title= truncate(@product.name, :length=>20, :ommission=>'...')
 - @product.images.each do |f|
-	= image_tag f.photo.url(:small), :style=>'margin:20px 20px auto auto;'
+	= image_tag f.photo.url(:small), :style => 'margin:20px 20px auto auto;', :class => 'image-list'
 .clear
 %h3{:style=>"margin-top:50px;font:normal 13px 'Arial'"}= @product.info
