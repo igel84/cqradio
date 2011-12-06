@@ -38,10 +38,15 @@ $bg-color: #ccc;
 		color: $bg-color;
 		margin-bottom: 10px;
 		margin-right: 20px;
-		background: url('../images/line-prod.png') top no-repeat #fff;
+		background: url('../images/line-prod.png') bottom no-repeat #fff;
 	}
 	.info {
 		margin-top: 20px;
+	}
+	.image-list {
+		@include border-radius(25px);
+		border: solid 1px #ccc;
+		padding: 1px;
 	}
 }
 
