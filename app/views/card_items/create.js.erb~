@@ -1,0 +1,4 @@
+//$('#cards').html("<%= escape_javascript(link_to('ТОВАРЫ (' + current_card.card_items.size.to_s + ')', cards_path, :id=>'cards')) %>");
+$('#cards').text("<%= escape_javascript('ТОВАРЫ (' + current_card.card_items.size.to_s + ')') %>");
+
+alert(<%= current_card.card_items.size.to_s %>);

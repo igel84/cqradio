@@ -1,0 +1,35 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Product:</b>
+  <%= @card_item.product_id %>
+</p>
+
+<p>
+  <b>Count:</b>
+  <%= @card_item.count %>
+</p>
+
+<p>
+  <b>Price:</b>
+  <%= @card_item.price %>
+</p>
+
+<p>
+  <b>Summ:</b>
+  <%= @card_item.summ %>
+</p>
+
+<p>
+  <b>Card:</b>
+  <%= @card_item.card_id %>
+</p>
+
+<p>
+  <b>User:</b>
+  <%= @card_item.user_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_card_item_path(@card_item) %> |
+<%= link_to 'Back', card_items_path %>

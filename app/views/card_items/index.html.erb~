@@ -1,0 +1,28 @@
+<h2 class="title">Корзина товаров</h2>
+<table style="width:650px;">
+  <tr>
+    <th>Товар</th>
+    <th>Количество</th>
+    <th>Цена</th>
+    <th>Сумма</th>
+    <th></th>
+  </tr>
+
+<% if @card_items %>
+<% @card_items.each do |card_item| %>
+  <tr>
+    <td><%= card_item.product.name %></td>
+    <td><%= card_item.count %></td>
+    <td><%= card_item.price %></td>
+    <td><%= card_item.summ %></td>
+    <td><%= link_to card_clear_path(card_item.product_id), :confirm => 'вы уверены?', :method => :delete do %>
+    <%=	image_tag "del.png" %>
+    <% end %>
+    </td>
+  </tr>
+<% end %>
+<% end %>
+</table>
+<%= link_to 'очистить корзину', card_clear_path, :confirm => 'вы уверены?', :method => :delete, :class => 'btn danger', :style=>'float:right; margin-right:50px;' %>
+
+<br />
