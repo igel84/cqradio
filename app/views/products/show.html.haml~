@@ -1,5 +1,13 @@
 %h2.title= truncate(@product.name, :length=>20, :ommission=>'...')
-- @product.images.each do |f|
-	= image_tag f.photo.url(:small), :style=>'margin:20px 20px auto auto;'
-.clear
-%h3{:style=>"margin-top:50px;font:normal 13px 'Arial'"}= @product.info
+%table.product-info
+	%tr
+		%td{:rowspan=>2}
+			- @product.images.each do |f|
+				= image_tag f.photo.url(:small), :style => 'margin:20px 20px auto auto;', :class => 'image-list'
+		%td.price
+			= number_to_currency(@product.price, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ") if @product.price
+		%td.add-card
+			= button_to 'добавить в корзину', card_items_path(:product_id=>@product.id), :remote=>true, :class=>'btn info', :style=>'float:right;margin-right:55px;'
+	%tr
+		%td{:colspan => 2}
+			%h3{:style=>"margin-top:50px;font:normal 13px 'Arial'"}= @product.info

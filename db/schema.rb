@@ -10,7 +10,26 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111205204754) do
+ActiveRecord::Schema.define(:version => 20111213202548) do
+
+  create_table "card_items", :force => true do |t|
+    t.integer  "product_id"
+    t.integer  "count"
+    t.integer  "price"
+    t.integer  "summ"
+    t.integer  "card_id"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "cards", :force => true do |t|
+    t.integer  "user_id"
+    t.boolean  "enable"
+    t.integer  "stady"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "ckeditor_assets", :force => true do |t|
     t.string   "data_file_name",                  :null => false

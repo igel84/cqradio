@@ -183,6 +183,33 @@ a.cat_info {
 	float: right;
 }
 
+#top-link-text {
+	li {
+		display: block;
+		list-style-type: none;
+		margin-top: 18px;
+		margin-right: 10px;
+		//padding-bottom:10px;
+		//line-height: 30px;
+		//float: right;
+	}
+	li.active a { color: lighten(#0272be,20%); }
+	a {
+		//height: 35px;
+		text-transform: uppercase;
+		display: block;
+		padding: 8px;
+		float: right;
+		font: bold 14px 'Tahoma';
+		color: darken(#0272be, 10%);
+		font: bold 13px Tahoma, Georgia, "Times New Roman", Times, serif;
+		&:hover { color: #ffffff; }
+	}
+	//width: 50px;
+	float: right;
+	margin-right: 20px;
+}
+
 ul#main-menu {
 	text-transform: uppercase;
 	margin: 10px 0 0 10px;
@@ -220,7 +247,16 @@ ul#main-menu {
 
 .row {
 	position: relative;
-	margin-top: 100px;
+	margin-top: 80px;
+	.span5 h2.product {
+		border-bottom: dashed 1px lighten(#0272be, 55%);
+		border-top: dashed 1px lighten(#0272be, 55%);
+		margin: 0 25px 20px 25px;
+		padding: 8px;
+		color: lighten(#0272be, 20%);
+		text-align: center;
+		font: bold 14px Tahoma, Georgia, "Times New Roman", Times, serif;
+	}
 }
 
 h3.title {
@@ -239,6 +275,26 @@ a.with-img {
 		td span.label.notice { padding: 3px 2px 3px 2px; }
 		td:nth-child(2) { padding-left:0; }
 		td img.photo { border: solid 2px #bbb; }
+	}
+}
+
+table.product-info {
+	//margin-right: 50px;
+	width: 650px;
+	border: none;
+	tr td { border: none; }
+	td.price {
+		padding: 0;
+		vertical-align: bottom;
+		text-align: center;
+		color: green;
+		font: bold italic 20px Tahoma, Georgia, "Times New Roman", Times, serif;
+	}
+	td.add-card {
+		vertical-align: middle;
+		text-align: right;
+		padding: 0;
+		//form, input, div { margin: 0; vertical-align: top; width: 100px; height: 30px; }
 	}
 }
 

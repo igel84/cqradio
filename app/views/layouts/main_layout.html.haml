@@ -8,9 +8,26 @@
 	%body
 		#content
 			= image_tag 'logo.png', :style=>'float:left; width:300px; margin-top:10px;'
-			= image_tag 'radio-fon1.png', :style=>'float:right; height:75px;'
-			%ul#top-link
-				%li
+			= image_tag 'radio-fon1.png', :style=>'float:right; width:150px; margin-top: 5px;'
+			%ul#top-link-text.pills
+				- if params[:id] && params[:id] == 1 && controller_name == 'pages'
+					%li.active= link_to 'ГЛАВНАЯ', root_path
+				- else
+					%li= link_to 'ГЛАВНАЯ', root_path
+				- if action_name == 'category' || controller_name == 'products'
+					%li.active= link_to 'ТОВАРЫ', category_path
+				- else
+					%li= link_to 'ТОВАРЫ', category_path
+				- Page.where('id != 1').each do |page|
+					- if params[:id] && params[:id] == page.id.to_s && controller_name == 'pages'
+						%li.active= link_to page.name, page_path(page)
+					- else
+						%li= link_to page.name, page_path(page)
+				- if !current_card
+					%li= link_to 'КОРЗИНА', card_items_path, :id=>'cards'
+				- else
+					%li= link_to 'КОРЗИНА (' + current_card.card_items.size.to_s + ')', card_items_path, :id=>'cards'
+				-#%li
 					= image_tag 'lock.png'
 					= link_to 'Регистрация', root_path
 					= link_to '/', '#', :id=>'enter-space'
@@ -25,11 +42,10 @@
 				= link_to 'Поиск', root_path, :id=>'find-but'
 			.row
 				.span5
+					%h2.product ТОВАРЫ
 					%ul#main-menu
-						%li
-							= link_to Page.find(1).name, root_path
-						%li
-							= link_to 'ТОВАРЫ', category_path
+						-#%li= link_to Page.find(1).name, root_path
+						-#%li= link_to 'ТОВАРЫ', category_path
 						%ul#main-menu.menu-product
 							- Menu.roots.where(:visible=>true).order('lft').each do |menu|
 								= render :partial => "layouts/menu", :locals => {:menu=>menu }
@@ -43,18 +59,24 @@
 									- m_root.products.where(:visible=>true).each do |p_root|
 										%li
 											= link_to p_root.name, product_path(p_root), :class=>'product'
-						- Page.where('id != 1').each do |page|
+						-# Page.where('id != 1').each do |page|
 							%li
 								= link_to page.name, page_path(page)
+					-#%h2.product{:style=>'margin-top:50px;'} НОВИНКА
+					-# Product.where(:visible=>true).order('created_at DESC').limit(1).each do |prod|
+						= link_to(product_path(prod)) do
+							= image_tag(prod.images.first.photo.url(:thumb), :alt=>prod.name) if prod.images != []
+							%span= truncate(prod.name, :ommission=>'...', :length=>15)
 				.span12
-					.sc_menu
-						%ul.sc_menu
-							- Product.where(:visible=>true).order('created_at DESC').limit(15).each do |prod|
-								- if prod.images != []
-									%li
-										= link_to(product_path(prod)) do
-											= image_tag(prod.images.first.photo.url(:thumb), :alt=>prod.name)
-											%span= truncate(prod.name, :ommission=>'...', :length=>15)
+					- if controller_name != 'products' && controller_name != 'account'
+						.sc_menu
+							%ul.sc_menu
+								- Product.where(:visible=>true).order('created_at DESC').limit(15).each do |prod|
+									- if prod.images != []
+										%li
+											= link_to(product_path(prod)) do
+												= image_tag(prod.images.first.photo.url(:thumb), :alt=>prod.name)
+												%span= truncate(prod.name, :ommission=>'...', :length=>15)
 					-#%h2.title Новые товары
 					-#- Product.where(:visible=>true).order('created_at DESC').limit(3).each do |pr|
 					-#	= link_to(product_path(pr), :class=>'rowbottom') do

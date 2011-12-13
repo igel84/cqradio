@@ -1,5 +1,10 @@
 InitialRelease::Application.routes.draw do
 
+  resources :cards
+
+  match '/card_clear/(:id)' => 'card_items#card_clear', :as => 'card_clear'
+  resources :card_items
+
   match '/login' => 'account#login', :as => 'login'
   match '/logout' => 'account#logout', :as => 'logout'
   match '/authenticate' => 'account#authenticate', :as => 'authenticate'

@@ -1,0 +1,4 @@
+%li
+	= link_to  menu.name, category_path(menu)
+	%ul
+		= render :partial => "layouts/menu", :collection => menu.children.where(:visible=>true).order('lft')
