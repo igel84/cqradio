@@ -93,16 +93,16 @@ body {
   background: url("../images/bg.png") top repeat-x white;
 }
 
-/* line 14, ../../app/stylesheets/layout.scss */
+/* line 18, ../../app/stylesheets/layout.scss */
 #footer {
   background: #f2f2f2;
 }
-/* line 16, ../../app/stylesheets/layout.scss */
+/* line 20, ../../app/stylesheets/layout.scss */
 #footer p {
   width: 1000px;
   margin: 10px auto 10px auto;
 }
-/* line 19, ../../app/stylesheets/layout.scss */
+/* line 23, ../../app/stylesheets/layout.scss */
 #footer p a {
   -moz-border-radius: 15px;
   -webkit-border-radius: 15px;
@@ -119,7 +119,7 @@ body {
   float: right;
 }
 
-/* line 32, ../../app/stylesheets/layout.scss */
+/* line 36, ../../app/stylesheets/layout.scss */
 #content {
   -moz-border-radius: 50px;
   -webkit-border-radius: 50px;
@@ -131,7 +131,7 @@ body {
   width: 1000px;
   background: url("../images/top-bg.png") top repeat-x white;
 }
-/* line 37, ../../app/stylesheets/layout.scss */
+/* line 41, ../../app/stylesheets/layout.scss */
 #content h2.title {
   font: bold 13px 'Tahoma';
   color: #cccccc;
@@ -139,11 +139,11 @@ body {
   margin-right: 20px;
   background: url("../images/line-prod.png") bottom no-repeat white;
 }
-/* line 44, ../../app/stylesheets/layout.scss */
+/* line 48, ../../app/stylesheets/layout.scss */
 #content .info {
   margin-top: 20px;
 }
-/* line 47, ../../app/stylesheets/layout.scss */
+/* line 51, ../../app/stylesheets/layout.scss */
 #content .image-list {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -155,7 +155,7 @@ body {
   padding: 2px;
 }
 
-/* line 54, ../../app/stylesheets/layout.scss */
+/* line 58, ../../app/stylesheets/layout.scss */
 a.rowbottom {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -173,24 +173,24 @@ a.rowbottom {
   padding: 20px;
   text-decoration: none;
 }
-/* line 65, ../../app/stylesheets/layout.scss */
+/* line 69, ../../app/stylesheets/layout.scss */
 a.rowbottom:hover {
   border: solid 1px #39f;
 }
-/* line 69, ../../app/stylesheets/layout.scss */
+/* line 73, ../../app/stylesheets/layout.scss */
 a.rowbottom img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 74, ../../app/stylesheets/layout.scss */
+/* line 78, ../../app/stylesheets/layout.scss */
 a.rowbottom .prod-name {
   padding: 5px 0 5px 0;
   text-align: center;
   font: bold 14px 'Tahoma';
   color: #0272be;
 }
-/* line 80, ../../app/stylesheets/layout.scss */
+/* line 84, ../../app/stylesheets/layout.scss */
 a.rowbottom .prod-info {
   margin: 0;
   padding: 5px 0 5px 0;
@@ -198,7 +198,7 @@ a.rowbottom .prod-info {
   color: #39f;
 }
 
-/* line 89, ../../app/stylesheets/layout.scss */
+/* line 93, ../../app/stylesheets/layout.scss */
 a.cat_info {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -214,18 +214,18 @@ a.cat_info {
   padding: 10px;
   text-decoration: none;
 }
-/* line 98, ../../app/stylesheets/layout.scss */
+/* line 102, ../../app/stylesheets/layout.scss */
 a.cat_info:hover {
   border: solid 1px #39f;
 }
-/* line 102, ../../app/stylesheets/layout.scss */
+/* line 106, ../../app/stylesheets/layout.scss */
 a.cat_info img {
   float: left;
   display: block;
   margin-left: 10px;
   width: 30px;
 }
-/* line 108, ../../app/stylesheets/layout.scss */
+/* line 112, ../../app/stylesheets/layout.scss */
 a.cat_info .cat-name {
   float: left;
   margin-top: 8px;
@@ -234,7 +234,7 @@ a.cat_info .cat-name {
   font: bold 14px 'Tahoma';
   color: #0272be;
 }
-/* line 116, ../../app/stylesheets/layout.scss */
+/* line 120, ../../app/stylesheets/layout.scss */
 a.cat_info .cat-info {
   float: right;
   margin-top: 8px;
@@ -244,14 +244,14 @@ a.cat_info .cat-info {
   color: #0272be;
 }
 
-/* line 126, ../../app/stylesheets/layout.scss */
+/* line 130, ../../app/stylesheets/layout.scss */
 #find {
   width: 550px;
   position: absolute;
   top: 95px;
   margin-left: 490px;
 }
-/* line 127, ../../app/stylesheets/layout.scss */
+/* line 131, ../../app/stylesheets/layout.scss */
 #find input {
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -266,7 +266,7 @@ a.cat_info .cat-info {
   padding-left: 30px;
   width: 400px;
 }
-/* line 136, ../../app/stylesheets/layout.scss */
+/* line 140, ../../app/stylesheets/layout.scss */
 #find a {
   float: left;
   padding-top: 3px;
@@ -275,16 +275,16 @@ a.cat_info .cat-info {
   color: #0272be;
 }
 
-/* line 151, ../../app/stylesheets/layout.scss */
+/* line 155, ../../app/stylesheets/layout.scss */
 #top-link {
   float: right;
 }
-/* line 152, ../../app/stylesheets/layout.scss */
+/* line 156, ../../app/stylesheets/layout.scss */
 #top-link li {
   display: block;
   list-style-type: none;
 }
-/* line 159, ../../app/stylesheets/layout.scss */
+/* line 163, ../../app/stylesheets/layout.scss */
 #top-link img {
   float: right;
   margin-top: 5px;
@@ -292,12 +292,12 @@ a.cat_info .cat-info {
   width: 29px;
   height: 29px;
 }
-/* line 166, ../../app/stylesheets/layout.scss */
+/* line 170, ../../app/stylesheets/layout.scss */
 #top-link #enter-space {
   margin-left: 5px;
   margin-right: 5px;
 }
-/* line 170, ../../app/stylesheets/layout.scss */
+/* line 174, ../../app/stylesheets/layout.scss */
 #top-link a {
   display: block;
   padding-top: 18px;
@@ -306,25 +306,28 @@ a.cat_info .cat-info {
   color: #0272be;
 }
 
-/* line 182, ../../app/stylesheets/layout.scss */
+/* line 186, ../../app/stylesheets/layout.scss */
 ul#main-menu {
   text-transform: uppercase;
   margin: 10px 0 0 10px;
 }
-/* line 185, ../../app/stylesheets/layout.scss */
+/* line 194, ../../app/stylesheets/layout.scss */
 ul#main-menu li {
   margin: 10px 0 0 10px;
   list-style-type: none;
 }
-/* line 188, ../../app/stylesheets/layout.scss */
+/* line 197, ../../app/stylesheets/layout.scss */
 ul#main-menu li a {
+  display: block;
+  margin-left: 5px;
+  margin-top: 1px;
   font-stretch: ultra-expanded;
   font-weight: bolder;
   font-family: 'Tahoma';
   font-size: 12px;
   color: #0272be;
 }
-/* line 195, ../../app/stylesheets/layout.scss */
+/* line 207, ../../app/stylesheets/layout.scss */
 ul#main-menu li a.product {
   font-stretch: ultra-expanded;
   font-weight: normal;
@@ -333,45 +336,127 @@ ul#main-menu li a.product {
   color: #0272be;
 }
 
-/* line 205, ../../app/stylesheets/layout.scss */
+/* line 217, ../../app/stylesheets/layout.scss */
 .clear {
   clear: both;
 }
 
-/* line 209, ../../app/stylesheets/layout.scss */
+/* line 221, ../../app/stylesheets/layout.scss */
 .row {
   position: relative;
   margin-top: 100px;
 }
 
-/* line 214, ../../app/stylesheets/layout.scss */
+/* line 226, ../../app/stylesheets/layout.scss */
 h3.title {
   padding: 0 0 0 20px;
 }
-/* line 216, ../../app/stylesheets/layout.scss */
+/* line 228, ../../app/stylesheets/layout.scss */
 h3.title a.btn {
   margin: 5px 10px 0 0;
   float: right;
 }
 
-/* line 221, ../../app/stylesheets/layout.scss */
+/* line 233, ../../app/stylesheets/layout.scss */
 a.with-img {
   margin: 0;
 }
-/* line 223, ../../app/stylesheets/layout.scss */
+/* line 235, ../../app/stylesheets/layout.scss */
 a.with-img:hover {
   background: none;
 }
 
-/* line 227, ../../app/stylesheets/layout.scss */
+/* line 239, ../../app/stylesheets/layout.scss */
 .products tr td span.label.notice {
   padding: 3px 2px 3px 2px;
 }
-/* line 228, ../../app/stylesheets/layout.scss */
+/* line 240, ../../app/stylesheets/layout.scss */
 .products tr td:nth-child(2) {
   padding-left: 0;
 }
-/* line 229, ../../app/stylesheets/layout.scss */
+/* line 241, ../../app/stylesheets/layout.scss */
 .products tr td img.photo {
   border: solid 2px #bbb;
+}
+
+/* line 246, ../../app/stylesheets/layout.scss */
+div.sc_menu {
+  /* Set it so we could calculate the offsetLeft */
+  -moz-border-radius: 25px;
+  -webkit-border-radius: 25px;
+  -o-border-radius: 25px;
+  -ms-border-radius: 25px;
+  -khtml-border-radius: 25px;
+  border-radius: 25px;
+  background: url("../images/navigation.png");
+  position: relative;
+  height: 145px;
+  width: 655px;
+  overflow: auto;
+}
+
+/* line 255, ../../app/stylesheets/layout.scss */
+ul.sc_menu {
+  display: block;
+  height: 110px;
+  /* max width here, for users without javascript */
+  width: 1500px;
+  padding: 15px 0 0 15px;
+  /* removing default styling */
+  margin: 0;
+  list-style: none;
+}
+
+/* line 265, ../../app/stylesheets/layout.scss */
+.sc_menu li {
+  display: block;
+  float: left;
+  padding: 0 4px;
+}
+
+/* line 270, ../../app/stylesheets/layout.scss */
+.sc_menu a {
+  display: block;
+  text-decoration: none;
+}
+
+/* line 274, ../../app/stylesheets/layout.scss */
+.sc_menu span {
+  display: none;
+  margin-top: 3px;
+  text-align: center;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* line 282, ../../app/stylesheets/layout.scss */
+.sc_menu a:hover span {
+  display: block;
+}
+
+/* line 285, ../../app/stylesheets/layout.scss */
+.sc_menu img {
+  border: 3px #fff solid;
+  -moz-border-radius: 3px;
+  -webkit-border-radius: 3px;
+  -o-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -khtml-border-radius: 3px;
+  border-radius: 3px;
+}
+
+/* line 291, ../../app/stylesheets/layout.scss */
+.sc_menu a:hover img {
+  filter: alpha(opacity=50);
+  opacity: 0.5;
+}
+
+/* Here are styles for the back button, don't look at them */
+/* line 298, ../../app/stylesheets/layout.scss */
+#back {
+  display: block;
+  width: 660px;
+  text-align: center;
+  color: #003469;
+  font-size: 16px;
 }
