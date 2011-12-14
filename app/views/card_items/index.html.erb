@@ -1,28 +1,44 @@
 <h2 class="title">Корзина товаров</h2>
-<table style="width:650px;margin-bottom:20px;">
-  <tr>
-    <th>Товар</th>
-    <th>Количество</th>
-    <th>Цена</th>
-    <th>Сумма</th>
-    <th></th>
-  </tr>
-
-<% if @card_items %>
-<% @card_items.each do |card_item| %>
-  <tr>
-    <td><%= card_item.product.name %></td>
-    <td><%= card_item.count %></td>
-    <td><%= card_item.price %></td>
-    <td><%= card_item.summ %></td>
-    <td><%= link_to card_clear_path(card_item.product_id), :confirm => 'вы уверены?', :method => :delete do %>
-    <%=	image_tag "del.png" %>
-    <% end %>
-    </td>
-  </tr>
+<% if current_card %>
+	<table style="width:650px;margin-bottom:20px;margin-top:20px;">
+		<tr class="card-item-tr">
+		  <th>Товар</th>
+		  <th>Количество</th>
+		  <th>Цена</th>
+		  <th>Сумма</th>
+		  <th></th>
+		</tr>
+		<% summ = 0 %>
+		<% current_card[:card_item].each do |item, item_params| %>
+			<% summ += item_params[:summ] %>
+			<tr class="card-item-tr">
+				<td><%= Product.find(item_params[:product_id]).name %></td>
+				<td>
+					<%= link_to card_conversion_path(:id=>item.to_s, :act=>'false') do %>
+						<%=	image_tag "minus.png" %>
+					<% end %>
+					<%= item_params[:count] %>
+					<%= link_to card_conversion_path(:id=>item.to_s, :act=>'true') do %>
+						<%=	image_tag "plus.png" %>
+					<% end %>
+				</td>
+				<td><%= number_to_currency(item_params[:price], :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ") %></td>
+				<td><%= number_to_currency(item_params[:summ], :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ") %></td>
+				<td><%= link_to card_clear_path(item.to_s), :confirm => 'вы уверены?', :method => :delete do %>
+					<%=	image_tag "del.png" %>
+				<% end %>
+				</td>
+			</tr>
+		<% end %>
+		</table>
+	<span style="color:#0272BE;font: bold italic 18px Tahoma, Georgia, 'Times New Roman', Times, serif;">
+		Общая сумма:&nbsp;
+		<%= number_to_currency(summ, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ") %>
+	</span>
+	<%= link_to 'очистить корзину', card_clear_path, :confirm => 'вы уверены?', :method => :delete, :class => 'btn danger', :style=>'float:right; margin-right:50px;margin-bottom:20px;' %>
+	<%= link_to 'оформить заказ', new_card_path, :class => 'btn primary', :style=>'float:right; margin-right:20px;margin-bottom:20px;' %>
+<% else %>
+	<h3 align='center'>Корзина пуста</h3>
 <% end %>
-<% end %>
-</table>
-<%= link_to 'очистить корзину', card_clear_path, :confirm => 'вы уверены?', :method => :delete, :class => 'btn danger', :style=>'float:right; margin-right:50px;' %>
 
 <br />

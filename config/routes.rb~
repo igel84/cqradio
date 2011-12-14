@@ -3,6 +3,7 @@ InitialRelease::Application.routes.draw do
   resources :cards
 
   match '/card_clear/(:id)' => 'card_items#card_clear', :as => 'card_clear'
+  match '/card_conversion/:act/:id' => 'card_items#card_conversion', :as => 'card_conversion'
   resources :card_items
 
   match '/login' => 'account#login', :as => 'login'

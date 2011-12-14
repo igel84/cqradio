@@ -7,7 +7,7 @@
 		%td.price
 			= number_to_currency(@product.price, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ") if @product.price
 		%td.add-card
-			= button_to 'добавить в корзину', card_items_path(:product_id=>@product.id), :remote=>true, :class=>'btn info', :style=>'float:right;margin-right:55px;'
+			= button_to 'добавить в корзину', card_items_path(:product_id=>@product.id), :remote=>true, :class=>'btn info' if @product.price
 	%tr
 		%td{:colspan => 2}
-			%h3{:style=>"margin-top:50px;font:normal 13px 'Arial'"}= @product.info
+			%h3{:style=>"margin-top:50px;font:normal 14px 'Arial';line-height:24px;"}= @product.info

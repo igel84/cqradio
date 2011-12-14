@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AccountController < ApplicationController
 	layout 'main_layout'
 

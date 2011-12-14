@@ -358,3 +358,12 @@ ul.sc_menu {
 	color: #003469;
 	font-size: 16px;
 }
+
+.card-item-tr {
+	td {
+		border-bottom: solid 1px lighten($bg-color, 10%);
+		height:30px;
+		line-height:30px;
+		img { margin:2px 5px; }
+	}
+}

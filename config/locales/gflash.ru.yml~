@@ -1,0 +1,9 @@
+ru:
+  gflash:
+    titles:
+      notice: "Уведомление"
+      success: "Успех"
+      warning: "Предупреждение"
+      error: "Ошибка"
+      progress: "Прогресс"
+      createcard: "Заказ успешно создан"

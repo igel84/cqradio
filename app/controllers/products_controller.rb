@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ProductsController < ApplicationController
   #layout 'main_layout', :only=>'show'
   layout 'application', :except=>'show'

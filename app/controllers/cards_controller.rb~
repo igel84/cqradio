@@ -59,7 +59,7 @@ class CardsController < ApplicationController
     end
 		session[:card] = nil
     if @card.save
-    	flash[:notice] = 'Заказ успешно создан, с Вами свяжется наш менеджер'
+    	flash[:createcard] = 'Заказ успешно создан, с Вами свяжется наш менеджер'
     	redirect_to(root_path)
     else
     	render :action => "new"

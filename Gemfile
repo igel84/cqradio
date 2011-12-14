@@ -15,6 +15,7 @@ gem 'awesome_nested_set'
 gem 'paperclip', "~> 2.4"
 gem "ckeditor", "~> 3.6.0"
 gem "acts_as_list"
+gem 'gritter_notices'
 
 # Use unicorn as the web server
 # gem 'unicorn'

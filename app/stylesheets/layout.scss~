@@ -280,7 +280,7 @@ a.with-img {
 
 table.product-info {
 	//margin-right: 50px;
-	width: 650px;
+	width: 640px;
 	border: none;
 	tr td { border: none; }
 	td.price {
@@ -357,4 +357,13 @@ ul.sc_menu {
 	text-align: center;
 	color: #003469;
 	font-size: 16px;
+}
+
+.card-item-tr {
+	td {
+		border-bottom: solid 1px lighten($bg-color, 15%);
+		height:30px;
+		line-height:30px;
+		img { margin:2px 5px; }
+	}
 }

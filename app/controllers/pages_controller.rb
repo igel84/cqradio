@@ -1,3 +1,4 @@
+#encoding: utf-8
 class PagesController < ApplicationController
   #layout "main_layout", :only => 'category, show'
   layout "application", :except => 'category, show'

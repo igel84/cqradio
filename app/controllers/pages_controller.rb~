@@ -5,7 +5,7 @@ class PagesController < ApplicationController
 	def find
 		if params[:text] != ''
 			@menus = []
-			@products = Product.find(:all, :conditions=>['name like ?', params[:text] + "%"])
+			@products = Product.find(:all, :conditions=>['name like ?', "%" + params[:text] + "%"])
 			render 'category', :layout=>'main_layout'
 		else
 			redirect_to :root

@@ -1,32 +1,80 @@
 class CardItemsController < ApplicationController
-  layout 'main_layout'
+  layout 'main_layout', :only =>'index'
 
 	def create
-    current_card == nil ? session[:card] = Card.new : current_card
-    current_card.card_items << CardItem.new(:product_id=>params[:product_id])
+		id = rand(1234567890)
+    session[:card] = Card.new( :id => id) unless session[:card]
+    session[:card][:card_item] = {} unless session[:card][:card_item]
+    idItem = 0
+    @product = Product.find(params[:product_id])
+    count = 1
+    session[:card][:card_item].each do |item, item_params|
+			if item_params[:product_id] == @product.id
+				count = item_params[:count] + 1
+				idItem = item.to_i #item_params[:id]
+			end
+    end
+    idItem = rand(1234567890) if idItem == 0
+    session[:card][:card_item][idItem] = {:product_id=>@product.id, :count=>count, :price=>@product.price, :summ=>@product.price*count}
+    session[:card].count = session[:card][:card_item].size
   end
 
   def index
-  	if current_card
-	    @card_items = current_card.card_items
+  	if session[:card]
+	    #@card_items = []
+	    #session[:card][:card_item].each do |item, item_params|
+	    #	@card_items << CardItem.new(
+	    #												:id=>item_params[:id], #item.to_i,
+	    #												:product_id=>item_params[:product_id],
+	    #												:count=>item_params[:count],
+	    #												:price=>item_params[:price])
+	    #end
 	  else
 	  	@card_items = nil
 	  end
   end
 
 	def card_clear
-		if params[:product_id]
-			current_card.card_items.each do |item|
-				item.destroy if item.product_id == params[:product_id]
-			end
+		if params[:id]
+			current_card[:card_item].delete(params[:id].to_i)
+			current_card.count -= 1
+			session[:card] = nil if current_card.count == 0
 		else
 			session[:card] = nil
 		end
 		redirect_to(card_items_url)
 	end
 
-  # GET /card_items/1
-  # GET /card_items/1.xml
+	def card_conversion
+		product_id = session[:card][:card_item][params[:id].to_i][:product_id]
+		count = session[:card][:card_item][params[:id].to_i][:count]
+		price = session[:card][:card_item][params[:id].to_i][:price]
+		if params[:act] == 'true'
+			count += 1
+			summ = count * price
+			session[:card][:card_item][params[:id].to_i] = {
+															:product_id=>product_id,
+															:count=>count,
+															:price=>price,
+															:summ=>summ}
+		else
+			count -= 1
+			if count == 0
+				current_card[:card_item].delete(params[:id].to_i)
+				current_card.count -= 1
+				session[:card] = nil if current_card.count == 0
+			else
+				summ = count * price
+				session[:card][:card_item][params[:id].to_i] = {
+															:product_id=>product_id,
+															:count=>count,
+															:price=>price,
+															:summ=>summ}
+			end
+		end
+		redirect_to(card_items_url)
+	end
+
   def show
     @card_item = CardItem.find(params[:id])
 
