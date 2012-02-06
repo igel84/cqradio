@@ -122,6 +122,7 @@ DEPENDENCIES
   mongrel (= 1.2.0.pre2)
   paperclip (~> 2.4)
   rails (= 3.0.9)
+  rake (= 0.9.2.2)
   russian
   sqlite3
   unicorn

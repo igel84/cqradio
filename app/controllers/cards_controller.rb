@@ -1,36 +1,25 @@
 #encoding: utf-8
 class CardsController < ApplicationController
-  layout 'main_layout', :only =>['new']
+  #layout 'main_layout', :only =>['new']
+	#layout 'application', :only =>['index']
 
   def index
     @cards = Card.all
-
-    respond_to do |format|
-      format.html # index.html.erb
-      format.xml  { render :xml => @cards }
-    end
+		render 'index', :layout => 'application'
   end
 
   # GET /cards/1
   # GET /cards/1.xml
   def show
     @card = Card.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @card }
-    end
+		render 'show', :layout => 'application'
   end
 
   # GET /cards/new
   # GET /cards/new.xml
   def new
     @card = Card.new
-
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @card }
-    end
+		render 'new', :layout => 'main_layout'
   end
 
   # GET /cards/1/edit
@@ -50,12 +39,12 @@ class CardsController < ApplicationController
     @card = Card.new
     @card.user = @user
     @card.card_items = []
-
-    session[:card][:card_item].each do |item, item_params|
+		session[:card][:card_item].each do |item, item_params|
 			@card.card_items << CardItem.new(
 	    												:product_id=>item_params[:product_id],
 	    												:count=>item_params[:count],
 	    												:price=>item_params[:price])
+	    @card.summ += item_params[:price]
     end
 		session[:card] = nil
     if @card.save

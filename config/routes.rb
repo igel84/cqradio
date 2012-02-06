@@ -28,6 +28,8 @@ InitialRelease::Application.routes.draw do
 
   root :to => 'pages#show', :id => 1
 
+	match ':hiperlink' => "products#show", :as => 'hiperlink'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

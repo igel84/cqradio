@@ -1,5 +1,5 @@
 %h3.title
-	Раздел: 
+	Раздел:
 	= params[:parent_id] ? (link_to Menu.find(params[:parent_id]).name, {:controller=>'menus', :action=>'index', :parent_id=>Menu.find(params[:parent_id]).parent_id}) : 'Корневой раздел'
 	- if params[:parent_id]
 		= link_to 'добавить раздел', {:controller=>'menus', :action=>'new', :parent_id=>params[:parent_id]}, :class=>'btn info'
@@ -31,7 +31,7 @@
 				- if menu.visible
 					= link_to visible_menu_path(:value=>'false', :id=>menu.id), :class=>'with-img' do
 						= image_tag '/images/visible.png'
-				- else				
+				- else
 					= link_to visible_menu_path(:value=>'true', :id=>menu.id), :class=>'with-img' do
 						= image_tag '/images/notvisible.png'
 			%td{:style=>'text-align:center;'}
@@ -63,7 +63,7 @@
 					%h6= link_to(product.name, product.datasheet.url)
 					%p= truncate(product.info, :length=>140, :omision=>'...')
 				%td{:style=>'text-align:center;vertical-align:top;'}
-					%span.label.notice{:style=>'font-size:13px;'}= number_to_currency(product.price, :unit=>'руб', :separator=>',', :format=>"%n %u", :delimiter => " ") if product.price
+					%span.label.notice{:style=>'font-size:13px;'}= number_to_currency(product.price, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ") if product.price
 				%td{:style=>'text-align:center;'}
 					= link_to edit_product_path(product), :class=>'with-img' do
 						= image_tag '/images/edit.png'

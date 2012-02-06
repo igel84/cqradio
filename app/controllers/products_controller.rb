@@ -44,7 +44,11 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.xml
   def show
-    @product = Product.find(params[:id])
+  	if params[:hiperlink]
+	    @product = Product.find_by_hiperlink(params[:hiperlink])
+    else
+      @product = Product.find(params[:id])
+    end
     render 'show', :layout=>'main_layout'
   end
 
@@ -68,6 +72,14 @@ class ProductsController < ApplicationController
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
+    @product.info = params[:product][:info].gsub("<", "&alt").gsub(">", "&alt").gsub("\r\n", "<br />") if params[:product][:info]
+    #фото
+    if params[:photos]
+      params[:photos].each do |photo|
+        image = Image.new(:photo=>photo)
+        @product.images << image
+    	end
+    end
     @product.position = Product.all.size + 1
     respond_to do |format|
       if @product.save
@@ -95,6 +107,8 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
+      	@product.info = params[:product][:info].gsub("<", "&alt").gsub(">", "&alt").gsub("\r\n", "<br />") if params[:product][:info]
+      	@product.save
         format.html { redirect_to  :controller=>'menus', :action=>'index', :parent_id => @product.menu_id }
         format.xml  { head :ok }
       else

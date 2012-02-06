@@ -39,8 +39,8 @@ $bg-color: #ccc;
 	width:1000px;
 	background: url('../images/top-bg.png') top repeat-x #fff;
 	h2.title {
-		font: bold 13px 'Tahoma';
-		color: $bg-color;
+		font: bold 14px 'Tahoma';
+		color: darken($bg-color, 5%);
 		margin-bottom: 10px;
 		margin-right: 20px;
 		background: url('../images/line-prod.png') bottom no-repeat #fff;
@@ -53,6 +53,20 @@ $bg-color: #ccc;
 		border: solid 1px #ccc;
 		padding: 2px;
 	}
+}
+
+#card-info-user {
+	margin-bottom: 50px;
+	margin-left: 20px;
+	margin-top: 20px;
+	h2 { padding: 5px; font: bold 16px 'Tahoma'; color: darken(#0272be, 10%); }
+	span { padding: 5px; font: bold 14px 'Tahoma'; color: #0272be; }
+	span:nth-child(1) { width: 120px; display:block; float:left; }
+	span:nth-child(2) { width: 500px; display:block; float:left;  border-bottom: solid 1px lighten(#0272be, 30%); }
+	p { clear: both; }
+}
+#card-info-item {
+	//tr td {  }
 }
 
 a.rowbottom {
@@ -76,14 +90,14 @@ a.rowbottom {
 		margin-right: auto;
 	}
 	.prod-name {
-		padding: 5px 0 5px 0;
+		padding: 5px 0 0 0;
 		text-align: center;
 		font: bold 14px 'Tahoma';
 		color: #0272be;
 	}
 	.prod-info {
 		margin: 0;
-		padding: 5px 0 5px 0;
+		padding: 0;
 		//text-align: center;
 		font: normal 12px 'Tahoma';
 		color: #39f;

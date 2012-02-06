@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20111214225040) do
+ActiveRecord::Schema.define(:version => 20120101183611) do
 
   create_table "card_items", :force => true do |t|
     t.integer  "product_id"
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20111214225040) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "count",      :default => 0
+    t.float    "summ",       :default => 0.0
   end
 
   create_table "ckeditor_assets", :force => true do |t|
@@ -102,6 +103,7 @@ ActiveRecord::Schema.define(:version => 20111214225040) do
     t.datetime "datasheet_updated_at"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "hiperlink"
   end
 
   create_table "users", :force => true do |t|
