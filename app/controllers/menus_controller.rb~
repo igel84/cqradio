@@ -1,5 +1,5 @@
 class MenusController < ApplicationController
-	before_filter :have_access, :except => [:show]
+	before_filter :have_access
 
   def move
     @menu = Menu.find(params[:id])

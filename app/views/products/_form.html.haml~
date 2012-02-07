@@ -1,3 +1,4 @@
+= javascript_include_tag :ckeditor
 = form_for(@product, :html => { :multipart => true }) do |f|
 	= f.hidden_field :menu_id, :value=>@product.menu_id
 	- if @product.errors.any?
@@ -6,7 +7,7 @@
 			%ul
 				- @product.errors.full_messages.each do |msg|
 					%li= msg
-	.field
+	.field{:style=>"margin-top:20px"}
 		= f.label 'Документация'
 		.input
 			= f.file_field :datasheet, :class=>"input-file", :style=>"background:#eee;"
@@ -16,12 +17,17 @@
 			= f.text_field :name, :class=>"span9"
 	.field
 		= f.label 'Описание'
-		.input
-			= f.text_area :info, :class=>"span9", :style=>"height:100px;"
+		.input{:style=>"height:320px;width:520px;"}
+			= cktext_area(:product, :info, :toolbar => 'Small')
+			=# f.text_area :info, :class=>"span9", :style=>"height:100px;"
 	.field
 		= f.label 'Цена'
 		.input
 			= f.text_field :price, :class=>'span9'
+	.field
+		= f.label 'Ссылка'
+		.input
+			= f.text_field :hiperlink, :class=>'span9'
 	#photo-pres{:style=>'display:block;margin:10px 70px 10px 150px;'}
 		- @product.images.each do |image|
 			.photo-pres{:style=>'margin:5px 5px 0 0;display:inline;'}

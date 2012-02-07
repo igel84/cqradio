@@ -32,7 +32,7 @@ $(document).ready(function() {
 
 	$('#find-but').click(function(){
 		var text = $('#find-text').val();
-		window.location = 'http://cqradio.igel84.locum.ru/find/' + text;
+		window.location = 'http://cqradio.ru/find/' + text;
 		return false;
 	});
 
@@ -93,4 +93,26 @@ $(document).ready(function() {
 		$("#product_photo").hide();
 		$('body').delPhotoEffect();
 	});
+
+	//проверка на ввод имени и email
+	$('#new-order #send-order').click(function() {
+		var emailReg = /^([\w-\.]+@([\w-]+\.)+[\w-]{2,4})?$/;
+		var error = false;
+
+		if ($('#name-error').length != 0) { $('#name-error').remove(); }
+		if ($('#email-error').length != 0) { $('#email-error').remove(); }
+
+		var userName = $('#new-order #name').val();
+		var userEmail = $('#new-order #email').val();
+		if (userName == '')	{
+			$('<p id="name-error" style="font:normal italic 12px Tahoma, serif;color:red;">необходимо указать фамилию и имя</p>').insertAfter('#new-order #name');
+			error = true;
+		}
+		if( userEmail == '' || !emailReg.test( userEmail ) ) {
+			$('<p id="email-error" style="font:normal italic 12px Tahoma, serif;color:red;">необходимо указать email</p>').insertAfter('#new-order #email');
+			error = true;
+		}
+		if (error == true) { return false; }
+	});
+
 });

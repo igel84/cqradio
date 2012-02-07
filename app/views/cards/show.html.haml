@@ -1,0 +1,32 @@
+#card-info-user
+	%h2 Информация о заказчике:
+	%p
+		%span Фамилия, имя:
+		%span= @card.user.name
+	%p
+		%span Email:
+		%span
+			%a{:href=>"mailto:#{@card.user.email}"}= @card.user.email
+	%p
+		%span Телефон:
+		%span!= @card.user.phone == '' ? '&nbsp;' : @card.user.phone
+	%p
+		%span Информация:
+		%span!= @card.user.info == '' ? '&nbsp;' : @card.user.info
+%table.zebra-striped#card-info-item
+	%tr
+		%th Товар
+		%th Количество
+		%th Цена
+		%th Сумма
+	- @card.card_items.each do |item|
+		%tr
+			%td= link_to item.product.name, edit_product_path(item.product)
+			%td= item.count
+			%td= number_to_currency(item.price, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ")
+			%td= number_to_currency(item.price * item.count, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ")
+	%tr
+		%td &nbsp;
+		%td &nbsp;
+		%td &nbsp;
+		%td{:style=>"font: bold 18px 'Tahoma'; color: #0272be;"}= number_to_currency(@card.summ, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ")

@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AccountController < ApplicationController
 	layout 'main_layout'
 
@@ -5,7 +6,7 @@ class AccountController < ApplicationController
 		user = User.authenticate(params[:user][:name], params[:user][:password])
 		if user
 			session[:user_id] = user.id
-	    redirect_to :root
+	    redirect_to :menus
 	  else
 	    flash[:notice] = "Имя пользователя или пароль указаны неверно"
 	    redirect_to :action => 'login'

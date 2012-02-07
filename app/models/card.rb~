@@ -1,2 +1,5 @@
 class Card < ActiveRecord::Base
+	:order => 'created_at DESC'
+	has_many :card_items, :dependent => :destroy
+	belongs_to :user
 end

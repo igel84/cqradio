@@ -1,14 +1,17 @@
 !!!
 %html
 	%head
-		%title радиодетали
-		= stylesheet_link_tag 'cupertino/jquery-ui-1.8.16.custom.css', 'bootstrap', 'treeview.css', 'layout'
-		= javascript_include_tag :defaults, 'jquery.treeview.js', 'jquery.cookie.js'
+		%title cqradio.ru
+		= stylesheet_link_tag "../javascripts/fancybox/jquery.fancybox.css", 'jqGalScroll.css', 'cupertino/jquery-ui-1.8.16.custom.css', 'bootstrap', 'treeview.css', 'layout'
+		= javascript_include_tag :defaults, "fancybox/jquery.fancybox.pack.js", 'jquery.treeview.js', 'jquery.cookie.js', 'jqgalscroll.js'
 		= csrf_meta_tag
+		= include_gritter
 	%body
+		= gflash
+		= gritter_flash_messages
 		#content
 			= image_tag 'logo.png', :style=>'float:left; width:300px; margin-top:10px;'
-			= image_tag 'radio-fon1.png', :style=>'float:right; width:150px; margin-top: 5px;'
+			= image_tag 'TH-9000.png', :style=>'float:right; width:140px; margin-top: 5px;'
 			%ul#top-link-text.pills
 				- if params[:id] && params[:id] == 1 && controller_name == 'pages'
 					%li.active= link_to 'ГЛАВНАЯ', root_path
@@ -19,14 +22,20 @@
 				- else
 					%li= link_to 'ТОВАРЫ', category_path
 				- Page.where('id != 1').each do |page|
-					- if params[:id] && params[:id] == page.id.to_s && controller_name == 'pages'
+					- if params[:id] && params[:id] == page.id.to_s && controller_name == 'pages' && action_name != 'category'
 						%li.active= link_to page.name, page_path(page)
 					- else
 						%li= link_to page.name, page_path(page)
-				- if !current_card
-					%li= link_to 'КОРЗИНА', card_items_path, :id=>'cards'
+				- if controller_name == 'card_items'
+					- if !current_card
+						%li.active= link_to 'КОРЗИНА', card_items_path, :id=>'cards'
+					- else
+						%li.active= link_to 'КОРЗИНА (' + current_card.count.to_s + ')', card_items_path, :id=>'cards'
 				- else
-					%li= link_to 'КОРЗИНА (' + current_card.card_items.size.to_s + ')', card_items_path, :id=>'cards'
+					- if !current_card
+						%li= link_to 'КОРЗИНА', card_items_path, :id=>'cards'
+					- else
+						%li= link_to 'КОРЗИНА (' + current_card.count.to_s + ')', card_items_path, :id=>'cards'
 				-#%li
 					= image_tag 'lock.png'
 					= link_to 'Регистрация', root_path
@@ -58,7 +67,10 @@
 											= link_to m_child.name, category_path(m_child)
 									- m_root.products.where(:visible=>true).each do |p_root|
 										%li
-											= link_to p_root.name, product_path(p_root), :class=>'product'
+											- if p_root.hiperlink
+												= link_to p_root.name, hiperlink_path(p_root.hiperlink), :class=>'product'
+											- else
+												= link_to p_root.name, product_path(p_root), :class=>'product'
 						-# Page.where('id != 1').each do |page|
 							%li
 								= link_to page.name, page_path(page)
@@ -68,15 +80,20 @@
 							= image_tag(prod.images.first.photo.url(:thumb), :alt=>prod.name) if prod.images != []
 							%span= truncate(prod.name, :ommission=>'...', :length=>15)
 				.span12
-					- if controller_name != 'products' && controller_name != 'account'
+					- if controller_name != 'products' && controller_name != 'account' && controller_name != 'cards'
 						.sc_menu
 							%ul.sc_menu
 								- Product.where(:visible=>true).order('created_at DESC').limit(15).each do |prod|
 									- if prod.images != []
 										%li
-											= link_to(product_path(prod)) do
-												= image_tag(prod.images.first.photo.url(:thumb), :alt=>prod.name)
-												%span= truncate(prod.name, :ommission=>'...', :length=>15)
+											- if prod.hiperlink
+												= link_to(hiperlink_path(prod.hiperlink)) do
+													= image_tag(prod.images.first.photo.url(:thumb), :alt=>prod.name)
+													%span= truncate(prod.name, :ommission=>'...', :length=>15)
+											- else
+												= link_to(product_path(prod)) do
+													= image_tag(prod.images.first.photo.url(:thumb), :alt=>prod.name)
+													%span= truncate(prod.name, :ommission=>'...', :length=>15)
 					-#%h2.title Новые товары
 					-#- Product.where(:visible=>true).order('created_at DESC').limit(3).each do |pr|
 					-#	= link_to(product_path(pr), :class=>'rowbottom') do
@@ -89,4 +106,4 @@
 			#layout_footer
 		#footer
 			%p
-				%a{:href=>'http://yuliansait.ru'} разработчик юлиансайт.рф
+				%a{:href=>'http://yuliansait.ru', :title=>'юлиансайт.рф -- yuliansait.ru'} разработчик юлиансайт.рф

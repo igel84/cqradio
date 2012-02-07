@@ -1,13 +1,29 @@
+= javascript_include_tag "autoadvance.js", "autoadvance-script.js"
+= stylesheet_link_tag "autoadvance-styles.css"
 %h2.title= truncate(@product.name, :length=>20, :ommission=>'...')
 %table.product-info
 	%tr
 		%td{:rowspan=>2}
-			- @product.images.each do |f|
-				= image_tag f.photo.url(:small), :style => 'margin:20px 20px auto auto;', :class => 'image-list'
+			-##slideshow
+			%ul#galery{:style=>'float:left; height:200px;'}
+				-#.slides
+				- @product.images.each do |f|
+					%li
+						= link_to f.photo.url(:normal) do
+							= image_tag f.photo.url(:small) #, :style => 'margin:20px 20px auto auto;', :class => 'image-list'
+			-#	%span.arrow.previous
+			-#	%span.arrow.next
 		%td.price
 			= number_to_currency(@product.price, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ") if @product.price
 		%td.add-card
-			= button_to 'добавить в корзину', card_items_path(:product_id=>@product.id), :remote=>true, :class=>'btn info', :style=>'float:right;margin-right:55px;'
+			= button_to 'добавить в корзину', card_items_path(:product_id=>@product.id), :remote=>true, :class=>'btn info' if @product.price
 	%tr
 		%td{:colspan => 2}
-			%h3{:style=>"margin-top:50px;font:normal 13px 'Arial'"}= @product.info
+			%h3{:style=>"margin-top:50px;font:normal 14px 'Arial';line-height:26px;"}!= @product.info
+	%tr
+		%td{:colspan => 3, :style=>'vertical-align:bottom;background:#eee;'}
+			- if @product.datasheet.url != '/datasheets/original/missing.png'
+				%span{:style=>'font:normal 14px Arial;'} Datasheet:
+				= link_to @product.datasheet_file_name, @product.datasheet.url
+			- else
+				!= "&nbsp;"

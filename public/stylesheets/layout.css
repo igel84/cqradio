@@ -1,9 +1,12 @@
-/* line 17, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+strong { font-weight: bold; }
+ul { list-style: disc; }
+
+/* line 17, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 html, body, div, span, applet, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 a, abbr, acronym, address, big, cite, code,
 del, dfn, em, img, ins, kbd, q, s, samp,
-small, strike, strong, sub, sup, tt, var,
+small, strike, sub, sup, tt, var,
 b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
@@ -20,55 +23,55 @@ time, mark, audio, video {
   vertical-align: baseline;
 }
 
-/* line 20, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 20, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 body {
   line-height: 1;
 }
 
-/* line 22, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
-ol, ul {
-  list-style: none;
-}
+/* line 22, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+//ol, ul {
+//  list-style: none;
+//}
 
-/* line 24, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 24, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 table {
   border-collapse: collapse;
   border-spacing: 0;
 }
 
-/* line 26, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 26, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 caption, th, td {
   text-align: left;
   font-weight: normal;
   vertical-align: middle;
 }
 
-/* line 28, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 28, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q, blockquote {
   quotes: none;
 }
-/* line 101, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 101, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 q:before, q:after, blockquote:before, blockquote:after {
   content: "";
   content: none;
 }
 
-/* line 30, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 30, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 a img {
   border: none;
 }
 
-/* line 114, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
+/* line 114, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/reset/_utilities.scss */
 article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section, summary {
   display: block;
 }
 
-/* line 10, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 10, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 html, body {
   height: 100%;
 }
 
-/* line 12, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 12, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 #layout {
   clear: both;
   min-height: 100%;
@@ -76,12 +79,12 @@ html, body {
   height: 100%;
   margin-bottom: -50px;
 }
-/* line 18, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 18, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 #layout #layout_footer {
   height: 50px;
 }
 
-/* line 20, ../../../../.rvm/gems/ree-1.8.7-2011.03/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
+/* line 20, ../../../../.rvm/gems/ree-1.8.7-2011.03@global/gems/compass-0.11.5/frameworks/compass/stylesheets/compass/layout/_sticky-footer.scss */
 #footer {
   clear: both;
   position: relative;
@@ -133,8 +136,8 @@ body {
 }
 /* line 41, ../../app/stylesheets/layout.scss */
 #content h2.title {
-  font: bold 13px 'Tahoma';
-  color: #cccccc;
+  font: bold 14px 'Tahoma';
+  color: #bfbfbf;
   margin-bottom: 10px;
   margin-right: 20px;
   background: url("../images/line-prod.png") bottom no-repeat white;
@@ -156,6 +159,42 @@ body {
 }
 
 /* line 58, ../../app/stylesheets/layout.scss */
+#card-info-user {
+  margin-bottom: 50px;
+  margin-left: 20px;
+  margin-top: 20px;
+}
+/* line 62, ../../app/stylesheets/layout.scss */
+#card-info-user h2 {
+  padding: 5px;
+  font: bold 16px 'Tahoma';
+  color: #01548c;
+}
+/* line 63, ../../app/stylesheets/layout.scss */
+#card-info-user span {
+  padding: 5px;
+  font: bold 14px 'Tahoma';
+  color: #0272be;
+}
+/* line 64, ../../app/stylesheets/layout.scss */
+#card-info-user span:nth-child(1) {
+  width: 120px;
+  display: block;
+  float: left;
+}
+/* line 65, ../../app/stylesheets/layout.scss */
+#card-info-user span:nth-child(2) {
+  width: 500px;
+  display: block;
+  float: left;
+  border-bottom: solid 1px #5cbcfd;
+}
+/* line 66, ../../app/stylesheets/layout.scss */
+#card-info-user p {
+  clear: both;
+}
+
+/* line 72, ../../app/stylesheets/layout.scss */
 a.rowbottom {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -173,32 +212,32 @@ a.rowbottom {
   padding: 20px;
   text-decoration: none;
 }
-/* line 69, ../../app/stylesheets/layout.scss */
+/* line 83, ../../app/stylesheets/layout.scss */
 a.rowbottom:hover {
   border: solid 1px #39f;
 }
-/* line 73, ../../app/stylesheets/layout.scss */
+/* line 87, ../../app/stylesheets/layout.scss */
 a.rowbottom img {
   display: block;
   margin-left: auto;
   margin-right: auto;
 }
-/* line 78, ../../app/stylesheets/layout.scss */
+/* line 92, ../../app/stylesheets/layout.scss */
 a.rowbottom .prod-name {
-  padding: 5px 0 5px 0;
+  padding: 5px 0 0 0;
   text-align: center;
   font: bold 14px 'Tahoma';
   color: #0272be;
 }
-/* line 84, ../../app/stylesheets/layout.scss */
+/* line 98, ../../app/stylesheets/layout.scss */
 a.rowbottom .prod-info {
   margin: 0;
-  padding: 5px 0 5px 0;
+  padding: 0;
   font: normal 12px 'Tahoma';
   color: #39f;
 }
 
-/* line 93, ../../app/stylesheets/layout.scss */
+/* line 107, ../../app/stylesheets/layout.scss */
 a.cat_info {
   -moz-border-radius: 25px;
   -webkit-border-radius: 25px;
@@ -214,18 +253,18 @@ a.cat_info {
   padding: 10px;
   text-decoration: none;
 }
-/* line 102, ../../app/stylesheets/layout.scss */
+/* line 116, ../../app/stylesheets/layout.scss */
 a.cat_info:hover {
   border: solid 1px #39f;
 }
-/* line 106, ../../app/stylesheets/layout.scss */
+/* line 120, ../../app/stylesheets/layout.scss */
 a.cat_info img {
   float: left;
   display: block;
   margin-left: 10px;
   width: 30px;
 }
-/* line 112, ../../app/stylesheets/layout.scss */
+/* line 126, ../../app/stylesheets/layout.scss */
 a.cat_info .cat-name {
   float: left;
   margin-top: 8px;
@@ -234,7 +273,7 @@ a.cat_info .cat-name {
   font: bold 14px 'Tahoma';
   color: #0272be;
 }
-/* line 120, ../../app/stylesheets/layout.scss */
+/* line 134, ../../app/stylesheets/layout.scss */
 a.cat_info .cat-info {
   float: right;
   margin-top: 8px;
@@ -244,14 +283,14 @@ a.cat_info .cat-info {
   color: #0272be;
 }
 
-/* line 130, ../../app/stylesheets/layout.scss */
+/* line 144, ../../app/stylesheets/layout.scss */
 #find {
   width: 550px;
   position: absolute;
   top: 95px;
   margin-left: 490px;
 }
-/* line 131, ../../app/stylesheets/layout.scss */
+/* line 145, ../../app/stylesheets/layout.scss */
 #find input {
   -moz-border-radius: 12px;
   -webkit-border-radius: 12px;
@@ -266,7 +305,7 @@ a.cat_info .cat-info {
   padding-left: 30px;
   width: 400px;
 }
-/* line 140, ../../app/stylesheets/layout.scss */
+/* line 154, ../../app/stylesheets/layout.scss */
 #find a {
   float: left;
   padding-top: 3px;
@@ -275,16 +314,16 @@ a.cat_info .cat-info {
   color: #0272be;
 }
 
-/* line 155, ../../app/stylesheets/layout.scss */
+/* line 169, ../../app/stylesheets/layout.scss */
 #top-link {
   float: right;
 }
-/* line 156, ../../app/stylesheets/layout.scss */
+/* line 170, ../../app/stylesheets/layout.scss */
 #top-link li {
   display: block;
   list-style-type: none;
 }
-/* line 163, ../../app/stylesheets/layout.scss */
+/* line 177, ../../app/stylesheets/layout.scss */
 #top-link img {
   float: right;
   margin-top: 5px;
@@ -292,12 +331,12 @@ a.cat_info .cat-info {
   width: 29px;
   height: 29px;
 }
-/* line 170, ../../app/stylesheets/layout.scss */
+/* line 184, ../../app/stylesheets/layout.scss */
 #top-link #enter-space {
   margin-left: 5px;
   margin-right: 5px;
 }
-/* line 174, ../../app/stylesheets/layout.scss */
+/* line 188, ../../app/stylesheets/layout.scss */
 #top-link a {
   display: block;
   padding-top: 18px;
@@ -306,23 +345,23 @@ a.cat_info .cat-info {
   color: #0272be;
 }
 
-/* line 186, ../../app/stylesheets/layout.scss */
+/* line 200, ../../app/stylesheets/layout.scss */
 #top-link-text {
   float: right;
   margin-right: 20px;
 }
-/* line 187, ../../app/stylesheets/layout.scss */
+/* line 201, ../../app/stylesheets/layout.scss */
 #top-link-text li {
   display: block;
   list-style-type: none;
   margin-top: 18px;
   margin-right: 10px;
 }
-/* line 196, ../../app/stylesheets/layout.scss */
+/* line 210, ../../app/stylesheets/layout.scss */
 #top-link-text li.active a {
   color: #29a7fd;
 }
-/* line 197, ../../app/stylesheets/layout.scss */
+/* line 211, ../../app/stylesheets/layout.scss */
 #top-link-text a {
   text-transform: uppercase;
   display: block;
@@ -332,22 +371,22 @@ a.cat_info .cat-info {
   color: #01548c;
   font: bold 13px Tahoma, Georgia, "Times New Roman", Times, serif;
 }
-/* line 206, ../../app/stylesheets/layout.scss */
+/* line 220, ../../app/stylesheets/layout.scss */
 #top-link-text a:hover {
   color: #ffffff;
 }
 
-/* line 213, ../../app/stylesheets/layout.scss */
+/* line 227, ../../app/stylesheets/layout.scss */
 ul#main-menu {
   text-transform: uppercase;
   margin: 10px 0 0 10px;
 }
-/* line 221, ../../app/stylesheets/layout.scss */
+/* line 235, ../../app/stylesheets/layout.scss */
 ul#main-menu li {
   margin: 10px 0 0 10px;
   list-style-type: none;
 }
-/* line 224, ../../app/stylesheets/layout.scss */
+/* line 238, ../../app/stylesheets/layout.scss */
 ul#main-menu li a {
   display: block;
   margin-left: 5px;
@@ -358,7 +397,7 @@ ul#main-menu li a {
   font-size: 12px;
   color: #0272be;
 }
-/* line 234, ../../app/stylesheets/layout.scss */
+/* line 248, ../../app/stylesheets/layout.scss */
 ul#main-menu li a.product {
   font-stretch: ultra-expanded;
   font-weight: normal;
@@ -367,17 +406,17 @@ ul#main-menu li a.product {
   color: #0272be;
 }
 
-/* line 244, ../../app/stylesheets/layout.scss */
+/* line 258, ../../app/stylesheets/layout.scss */
 .clear {
   clear: both;
 }
 
-/* line 248, ../../app/stylesheets/layout.scss */
+/* line 262, ../../app/stylesheets/layout.scss */
 .row {
   position: relative;
   margin-top: 80px;
 }
-/* line 251, ../../app/stylesheets/layout.scss */
+/* line 265, ../../app/stylesheets/layout.scss */
 .row .span5 h2.product {
   border-bottom: dashed 1px #daf0ff;
   border-top: dashed 1px #daf0ff;
@@ -388,48 +427,48 @@ ul#main-menu li a.product {
   font: bold 14px Tahoma, Georgia, "Times New Roman", Times, serif;
 }
 
-/* line 262, ../../app/stylesheets/layout.scss */
+/* line 276, ../../app/stylesheets/layout.scss */
 h3.title {
   padding: 0 0 0 20px;
 }
-/* line 264, ../../app/stylesheets/layout.scss */
+/* line 278, ../../app/stylesheets/layout.scss */
 h3.title a.btn {
   margin: 5px 10px 0 0;
   float: right;
 }
 
-/* line 269, ../../app/stylesheets/layout.scss */
+/* line 283, ../../app/stylesheets/layout.scss */
 a.with-img {
   margin: 0;
 }
-/* line 271, ../../app/stylesheets/layout.scss */
+/* line 285, ../../app/stylesheets/layout.scss */
 a.with-img:hover {
   background: none;
 }
 
-/* line 275, ../../app/stylesheets/layout.scss */
+/* line 289, ../../app/stylesheets/layout.scss */
 .products tr td span.label.notice {
   padding: 3px 2px 3px 2px;
 }
-/* line 276, ../../app/stylesheets/layout.scss */
+/* line 290, ../../app/stylesheets/layout.scss */
 .products tr td:nth-child(2) {
   padding-left: 0;
 }
-/* line 277, ../../app/stylesheets/layout.scss */
+/* line 291, ../../app/stylesheets/layout.scss */
 .products tr td img.photo {
   border: solid 2px #bbb;
 }
 
-/* line 281, ../../app/stylesheets/layout.scss */
+/* line 295, ../../app/stylesheets/layout.scss */
 table.product-info {
   width: 640px;
   border: none;
 }
-/* line 285, ../../app/stylesheets/layout.scss */
+/* line 299, ../../app/stylesheets/layout.scss */
 table.product-info tr td {
   border: none;
 }
-/* line 286, ../../app/stylesheets/layout.scss */
+/* line 300, ../../app/stylesheets/layout.scss */
 table.product-info td.price {
   padding: 0;
   vertical-align: bottom;
@@ -437,14 +476,14 @@ table.product-info td.price {
   color: green;
   font: bold italic 20px Tahoma, Georgia, "Times New Roman", Times, serif;
 }
-/* line 293, ../../app/stylesheets/layout.scss */
+/* line 307, ../../app/stylesheets/layout.scss */
 table.product-info td.add-card {
   vertical-align: middle;
   text-align: right;
   padding: 0;
 }
 
-/* line 302, ../../app/stylesheets/layout.scss */
+/* line 316, ../../app/stylesheets/layout.scss */
 div.sc_menu {
   /* Set it so we could calculate the offsetLeft */
   -moz-border-radius: 25px;
@@ -460,7 +499,7 @@ div.sc_menu {
   overflow: auto;
 }
 
-/* line 311, ../../app/stylesheets/layout.scss */
+/* line 325, ../../app/stylesheets/layout.scss */
 ul.sc_menu {
   display: block;
   height: 110px;
@@ -472,20 +511,20 @@ ul.sc_menu {
   list-style: none;
 }
 
-/* line 321, ../../app/stylesheets/layout.scss */
+/* line 335, ../../app/stylesheets/layout.scss */
 .sc_menu li {
   display: block;
   float: left;
   padding: 0 4px;
 }
 
-/* line 326, ../../app/stylesheets/layout.scss */
+/* line 340, ../../app/stylesheets/layout.scss */
 .sc_menu a {
   display: block;
   text-decoration: none;
 }
 
-/* line 330, ../../app/stylesheets/layout.scss */
+/* line 344, ../../app/stylesheets/layout.scss */
 .sc_menu span {
   display: none;
   margin-top: 3px;
@@ -494,12 +533,12 @@ ul.sc_menu {
   color: #fff;
 }
 
-/* line 338, ../../app/stylesheets/layout.scss */
+/* line 352, ../../app/stylesheets/layout.scss */
 .sc_menu a:hover span {
   display: block;
 }
 
-/* line 341, ../../app/stylesheets/layout.scss */
+/* line 355, ../../app/stylesheets/layout.scss */
 .sc_menu img {
   border: 3px #fff solid;
   -moz-border-radius: 3px;
@@ -510,18 +549,29 @@ ul.sc_menu {
   border-radius: 3px;
 }
 
-/* line 347, ../../app/stylesheets/layout.scss */
+/* line 361, ../../app/stylesheets/layout.scss */
 .sc_menu a:hover img {
   filter: alpha(opacity=50);
   opacity: 0.5;
 }
 
 /* Here are styles for the back button, don't look at them */
-/* line 354, ../../app/stylesheets/layout.scss */
+/* line 368, ../../app/stylesheets/layout.scss */
 #back {
   display: block;
   width: 660px;
   text-align: center;
   color: #003469;
   font-size: 16px;
+}
+
+/* line 377, ../../app/stylesheets/layout.scss */
+.card-item-tr td {
+  border-bottom: solid 1px #e6e6e6;
+  height: 30px;
+  line-height: 30px;
+}
+/* line 381, ../../app/stylesheets/layout.scss */
+.card-item-tr td img {
+  margin: 2px 5px;
 }

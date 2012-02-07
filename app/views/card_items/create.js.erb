@@ -1,4 +1,3 @@
-//$('#cards').html("<%= escape_javascript(link_to('ТОВАРЫ (' + current_card.card_items.size.to_s + ')', cards_path, :id=>'cards')) %>");
-$('#cards').text("<%= escape_javascript('КОРЗИНА (' + current_card.card_items.size.to_s + ')') %>");
+$('#cards').text("<%= escape_javascript('КОРЗИНА (' + current_card.count.to_s + ')') %>");
 
-alert(<%= current_card.card_items.size.to_s %>);
+alert("Товар <%= @product.name %> добавлен в корзину", "");

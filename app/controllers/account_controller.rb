@@ -1,3 +1,4 @@
+#encoding: utf-8
 class AccountController < ApplicationController
 	layout 'main_layout'
 
@@ -13,7 +14,7 @@ class AccountController < ApplicationController
   end
 
   def logout
-    if request.post?
+    if request.get?
       session[:user_id] = nil
       flash[:notice] = "Вы вышли из своего профиля"
     end

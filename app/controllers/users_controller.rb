@@ -1,4 +1,6 @@
+#encoding: utf-8
 class UsersController < ApplicationController
+  before_filter :have_access #, :except => [:new, :create]
   # GET /users
   # GET /users.xml
   def index

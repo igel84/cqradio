@@ -1,3 +1,4 @@
+#encoding: utf-8
 class ProductsController < ApplicationController
   #layout 'main_layout', :only=>'show'
   layout 'application', :except=>'show'
@@ -43,12 +44,16 @@ class ProductsController < ApplicationController
   # GET /products/1
   # GET /products/1.xml
   def show
-    @product = Product.find(params[:id])
-
-    respond_to do |format|
-      format.html # show.html.erb
-      format.xml  { render :xml => @product }
+  	if params[:hiperlink]
+	    @product = Product.find_by_hiperlink(params[:hiperlink])
+    else
+      @product = Product.find(params[:id])
     end
+    if @product == nil
+    	redirect_to pages_path
+    else
+	    render 'show', :layout=>'main_layout'
+	  end
   end
 
   # GET /products/new
@@ -71,6 +76,15 @@ class ProductsController < ApplicationController
   # POST /products.xml
   def create
     @product = Product.new(params[:product])
+    @product.info = params[:product][:info] if params[:product][:info]
+    #@product.info = params[:product][:info].gsub("<", "&alt").gsub(">", "&alt").gsub("\r\n", "<br />") if params[:product][:info]
+    #фото
+    if params[:photos]
+      params[:photos].each do |photo|
+        image = Image.new(:photo=>photo)
+        @product.images << image
+    	end
+    end
     @product.position = Product.all.size + 1
     respond_to do |format|
       if @product.save
@@ -98,6 +112,9 @@ class ProductsController < ApplicationController
 
     respond_to do |format|
       if @product.update_attributes(params[:product])
+      	@product.info = params[:product][:info].gsub("<", "&alt").gsub(">", "&alt").gsub("\r\n", "<br />") if params[:product][:info]
+      	#@product.info = params[:product][:info].gsub("<", "&alt").gsub(">", "&alt").gsub("\r\n", "<br />") if params[:product][:info]
+      	@product.save
         format.html { redirect_to  :controller=>'menus', :action=>'index', :parent_id => @product.menu_id }
         format.xml  { head :ok }
       else

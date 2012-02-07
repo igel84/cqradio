@@ -1,6 +1,8 @@
+#encoding: utf-8
 class PagesController < ApplicationController
   #layout "main_layout", :only => 'category, show'
   layout "application", :except => 'category, show'
+  before_filter :have_access, :only => [:index, :new, :create, :edit, :update, :destroy]
 
 	def find
 		if params[:text] != ''

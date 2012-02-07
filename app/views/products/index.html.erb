@@ -15,7 +15,7 @@
 <% @products.each do |product| %>
   <tr>
     <td><%= product.name %></td>
-    <td><%= product.info %></td>
+    <td><%!= product.info %></td>
     <td><%= product.balance %></td>
     <td><%= product.price %></td>
     <td><%= product.menu_id %></td>

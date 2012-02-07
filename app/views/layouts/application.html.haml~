@@ -3,7 +3,7 @@
 	%head
 		%title радиодетали
 		= stylesheet_link_tag 'cupertino/jquery-ui-1.8.16.custom.css', 'bootstrap', 'treeview', 'layout'
-		= javascript_include_tag :defaults, 'jquery.treeview.js'
+		= javascript_include_tag :defaults, 'jquery.treeview.js', 'jquery.cookie.js'
 		= csrf_meta_tag
 	%body
 		.header
@@ -15,8 +15,12 @@
 				= link_to 'страницы', pages_path
 				%br/
 				%br/
+				= link_to 'заказы', cards_path
+				%br/
+				%br/
 				%br/
 				%br/
 				= link_to 'выход', logout_path
+				= current_user.name
 			.span13{:style=>"background:#eee;width:740px;"}
 				= yield

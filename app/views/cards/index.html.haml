@@ -1,0 +1,16 @@
+%table.zebra-striped
+	%tr
+		%th Дата заказа
+		%th Заказчик
+		%th Содержание
+		%th Сумма
+	- Card.find(:all, :order=>'created_at DESC').each do |card|
+		%tr
+			%td= card.created_at.strftime("%d.%m.%Y")
+			%td= card.user.name
+			%td
+				- products = ''
+				- card.card_items.each do |item|
+					- products += truncate(item.product.name, :length=>15, :ommission=>'...')
+				= link_to truncate(products, :length=>50), card_path(card)
+			%td= number_to_currency(card.summ, :unit=>'руб', :precision=>0, :format=>"%n %u", :delimiter => " ")

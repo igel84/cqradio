@@ -1,0 +1,22 @@
+%h2.title Оформление заказа
+%p#notice{:style=>'text-align:center;font:normal 14px "Tahoma";color:#39f;'}
+	= notice
+- form_tag '/cards', :id=>'new-order' do |f|
+	%p{:style=>'text-align:center; margin-top:20px;font:normal 14px "Tahoma";'}
+		Фамилия и имя:
+		%br/
+		= text_field_tag('name', nil, :style=>"width:400px;")
+	%p{:style=>'text-align:center;font:normal 14px "Tahoma";margin-top:10px;'}
+		Email:
+		%br/
+		= text_field_tag('email', nil, :style=>"width:400px;")
+	%p{:style=>'text-align:center;font:normal 14px "Tahoma";margin-top:10px;'}
+		Телефон:
+		%br/
+		= text_field_tag('phone', nil, :style=>"width:400px;")
+	%p{:style=>'text-align:center;font:normal 14px "Tahoma";margin-top:10px;'}
+		Дополнительная информация:
+		%br/
+		=	text_area_tag('info', nil, :style=>"width:400px;height:50px;")
+	%p{:style=>'text-align:center; margin-top:20px;'}
+		= submit_tag 'сохранить', :class=>'btn primary', :style=>"width:150px;margin-bottom:20px;", :id=>'send-order'
